@@ -249,15 +249,20 @@ namespace std
 			}
 
 		public:
-			template <typename _T, typename _C>
-			class tree_iterator_t
+			//template <typename _T, typename _C>
+			class tree_iterator
 			{
 			public:
-				using tree_t = const tree<_T, null_type, _C, rb_tree_tag, tree_order_statistics_node_update>;
-				using tree_iterator = tree_iterator_t<_T, _C>;
+				using tree_t = const tree<T, null_type, Compare, rb_tree_tag, tree_order_statistics_node_update>;
+				//using tree_iterator = tree_iterator_t<_T, _C>;
+				using iterator_category = bidirectional_iterator_tag;
+				using value_type = const T;
+				using difference_type = size_t;
+				using pointer = const T*;
+				using reference = const T&;
 			private:
 				const tree_t* obj;
-				tree_t::iterator it;
+				tree_order_statistics_node_update<T>* it;
 
 			public:
 				const T& operator*() const
@@ -306,13 +311,13 @@ namespace std
 					return it != oth;
 				}
 
-				operator tree_t::iterator() const
+				operator tree_order_statistics_node_update<T>* () const
 				{
 					return it;
 				}
 
 			public:
-				tree_iterator_t(const void* a, void* b)
+				tree_iterator(const void* a, void* b)
 				{
 					it = reinterpret_cast<tree_t::iterator>(b);
 					obj = reinterpret_cast<const tree_t*>(a);
@@ -321,7 +326,7 @@ namespace std
 				}
 			};
 
-			using tree_iterator = tree_iterator_t<T, Compare>;
+			//using tree_iterator = tree_iterator_t<T, Compare>;
 
 			tree() : rnd(chrono::high_resolution_clock::now().time_since_epoch().count())
 			{
@@ -385,7 +390,7 @@ namespace std
 			/// <summary>
 			/// Return size
 			/// </summary>
-			inline size_t size()
+			inline size_t size() const
 			{
 				return size(root);
 			}
@@ -393,7 +398,7 @@ namespace std
 			/// <summary>
 			/// Return true if tree is empty
 			/// </summary>
-			inline bool empty()
+			inline bool empty() const
 			{
 				return size() == 0;
 			}
@@ -401,7 +406,7 @@ namespace std
 			/// <summary>
 			/// Return min element in tree
 			/// </summary>
-			inline tree_iterator min_element()
+			inline tree_iterator min_element() const
 			{
 				return tree_iterator(this, min(root));
 			}
@@ -409,7 +414,7 @@ namespace std
 			/// <summary>
 			/// Return max element in tree
 			/// </summary>
-			inline tree_iterator max_element()
+			inline tree_iterator max_element() const
 			{
 				return tree_iterator(this, max(root));
 			}
@@ -419,7 +424,7 @@ namespace std
 			/// </summary>
 			/// <param name="x">element to find</param>
 			/// <returns>nullptr if element not in list, else iterator of element</returns>
-			inline tree_iterator find(const T& x)
+			inline tree_iterator find(const T& x) const
 			{
 				return tree_iterator(this, find(root, x));
 			}
@@ -463,7 +468,7 @@ namespace std
 			/// </summary>
 			/// <param name="x">index of element</param>
 			/// <returns>kth element</returns>
-			inline tree_iterator find_by_order(size_t k)
+			inline tree_iterator find_by_order(size_t k) const
 			{
 				return tree_iterator(this, kth_element(root, k));
 			}
@@ -473,7 +478,7 @@ namespace std
 			/// </summary>
 			/// <param name="x">Element</param>
 			/// <returns>Order of element</returns>
-			inline size_t order_of_key(const T& x)
+			inline size_t order_of_key(const T& x) const
 			{
 				return order(root, x);
 			}
@@ -514,6 +519,49 @@ namespace std
 				clear(root);
 				root = nullptr;
 			}
+
+			/// <summary>
+			/// Swap two trees in O(1)
+			/// </summary>
+			/// <param name="oth">Tree to swap</param>
+			inline void swap(tree<T, null_type, Compare, rb_tree_tag, tree_order_statistics_node_update>& oth)
+			{
+				iterator tmp = root;
+				root = oth.root;
+				oth.root = tmp;
+			}
+
+			tree(const tree<T, null_type, Compare, rb_tree_tag, tree_order_statistics_node_update>& oth) : rnd(oth.rnd), func(oth.func)
+			{
+				for (auto& i : oth)
+				{
+					insert(i);
+				}
+			}
+
+			inline bool erase(tree_iterator it)
+			{
+				return erase(*it);
+			}
+
+			tree<T, null_type, Compare, rb_tree_tag, tree_order_statistics_node_update>& operator=(const tree<T, null_type, Compare, rb_tree_tag, tree_order_statistics_node_update>& oth)
+			{
+				rnd = oth.rnd;
+				func = oth.func;
+				clear();
+				for (auto& i : oth)
+				{
+					insert(i);
+				}
+				return *this;
+			}
 		};
+	}
+
+	template <typename T, typename C>
+	void swap(__gnu_pbds::tree<T, __gnu_pbds::null_type, C, __gnu_pbds::rb_tree_tag, __gnu_pbds::tree_order_statistics_node_update>& p,
+		__gnu_pbds::tree<T, __gnu_pbds::null_type, C, __gnu_pbds::rb_tree_tag, __gnu_pbds::tree_order_statistics_node_update>& q) noexcept
+	{
+		p.swap(q);
 	}
 }
