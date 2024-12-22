@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Author>Mark_Pr</Author>
+		<Shortcut>cinit</Shortcut>
+		<Title>C precalc</Title>
+		</Header>
+	<Snippet>
+		<Code Language="Cpp">
+			<![CDATA[]]>
+		</Code>
+	</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>SuffArray Algorithm Template</Title>
+			<Author>Mark_Pr</Author>
+			<Shortcut>suffarray</Shortcut>
+			<Description>Суффиксный массив (2 балла)</Description>
+			<SnippetTypes>
+				<SnippetType>SurroundsWith</SnippetType>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[const int MAXN = 500010, LOGN = 24;
+int p[MAXN], c[LOGN][MAXN], pt[MAXN], cnt[MAXN], lg2[MAXN], sparse[LOGN][MAXN];
+
+int init(const char* s, int n) {
+  memset(c, 0, sizeof(c));
+  memset(p, 0, sizeof(p));
+  memset(cnt, 0, sizeof(cnt));
+  for (size_t i = 0; i < n; i++) {
+    cnt[s[i]]++;
+  }
+  for (size_t i = 1; i < 256; i++) {
+    cnt[i] += cnt[i - 1];
+  }
+  for (size_t i = 0; i < n; i++) {
+    p[--cnt[s[i]]] = i;
+  }
+  c[0][p[0]] = 0;
+  for (size_t i = 1; i < n; i++) {
+    if (s[p[i]] == s[p[i - 1]])
+      c[0][p[i]] = c[0][p[i - 1]];
+    else
+      c[0][p[i]] = c[0][p[i - 1]] + 1;
+  }
+  size_t h = 0;
+  while ((1 << h) < n) {
+    for (size_t i = 0; i < n; i++) {
+      pt[i] = p[i] - (1 << h);
+      if (pt[i] < 0) pt[i] += n;
+    }
+    memset(cnt, 0, sizeof(cnt));
+    for (size_t i = 0; i < n; i++) {
+      cnt[c[h][pt[i]]]++;
+    }
+    for (size_t i = 1; i < n; i++) {
+      cnt[i] += cnt[i - 1];
+    }
+    for (int i = n - 1; i >= 0; --i) p[--cnt[c[h][pt[i]]]] = pt[i];
+    c[h + 1][p[0]] = 0;
+    for (size_t i = 1; i < n; ++i) {
+      size_t mid1 = (p[i] + (1 << h)) % n, mid2 = (p[i - 1] + (1 << h)) % n;
+      if (c[h][p[i]] != c[h][p[i - 1]] || c[h][mid1] != c[h][mid2])
+        c[h + 1][p[i]] = c[h + 1][p[i - 1]] + 1;
+      else
+        c[h + 1][p[i]] = c[h + 1][p[i - 1]];
+    }
+    h++;
+  }
+  return h;
+}
+
+int lcp_suffix(int s1, int s2, int log) {
+  int ans = 0;
+  for (int i = log - 1; i >= 0; i--) {
+    if (c[i][s1] == c[i][s2]) {
+      s1 += (1 << i);
+      s2 += (1 << i);
+      ans += (1 << i);
+    }
+  }
+  return ans;
+}
+
+void lcp_init(int n, int log) {
+  memset(lg2, 0, sizeof(lg2));
+  for (size_t i = 2; i < size(lg2); i++) {
+    lg2[i] = lg2[i >> 1] + 1;
+  }
+  memset(sparse, 0, sizeof(sparse));
+  for (size_t i = 0; i < n - 1; i++) {
+    sparse[0][i] = lcp_suffix(p[i], p[i + 1], log);
+  }
+  for (size_t i = 0; i < log - 1; i++) {
+    for (size_t j = 0; j + (1 << i) < n - 1; j++) {
+      sparse[i + 1][j] = min(sparse[i][j], sparse[i][j + (1 << i)]);
+    }
+  }
+}
+
+int lcp(int s1, int s2) {
+  if (s2 < s1) swap(s2, s1);
+  if (s1 == s2) return -1;
+  int log = lg2[s2 - s1];
+  return min(sparse[log][s1], sparse[log][s2 - (1 << log)]);
+}
+$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

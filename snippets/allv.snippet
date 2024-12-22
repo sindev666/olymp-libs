@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>allv</Title>
+			<Author>Mark</Author>
+			<Description>Iterate vector</Description>
+			<Shortcut>allv</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[$list$.begin(), $list$.end()$end$]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>list</ID>
+					<ToolTip>Vector to iterate</ToolTip>
+					<Default>v</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>namespace</Title>
+			<Author>Mark</Author>
+			<Description>Snippet for namespace</Description>
+			<Shortcut>nspace</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[namespace $name$ {
+					$end$
+				} // namespace $name$]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>Name of namespace</ToolTip>
+					<Default>MyNamespace</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Compare function</Title>
+			<Author>Mark</Author>
+			<Description>Snippet for create function</Description>
+			<Shortcut>function2</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[$type$ $name$(const $type$& v1, const $type$&v2) {
+					// Declaration of function $name$
+					$end$
+					return $type$();
+				}]]>
+			</Code>
+			<Declarations>
+				<Literal>
+					<ID>type</ID>
+					<ToolTip>Type of arguments</ToolTip>
+					<Default>int</Default>
+				</Literal>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>Name of function</ToolTip>
+					<Default>f</Default>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Interactor</Title>
+			<Author>Mark</Author>
+			<Shortcut>PC</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[struct interactor
+{
+	ll q = 0, maxq = 30;
+
+	interactor() {}
+
+	int operator()(int x)
+	{
+		++q;
+		assert(q <= maxq);
+		// Enter ask
+	}
+
+	void call(int x)
+	{
+		// Enter answer
+	}
+
+	void exit()
+	{
+		::exit(0);
+	}
+};
+
+interactor pc;]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Math Toolset</Title>
+			<Author>Mark</Author>
+			<Shortcut>mathtools</Shortcut>
+		</Header>
+		<Snippet>
+			<Code Language="CPP">
+				<![CDATA[
+#ifndef _DEBUG
+const ll MOD = 998244353, MAX = 50000000, MAXF = 50000099;
+#else
+const ll MOD = 998244353, MAX = 50, MAXF = 50;
+#endif
+
+int sieve[MAX];
+void init()
+{
+	memset(sieve, 0, sizeof(sieve));
+	sieve[0] = -1;
+	sieve[1] = 1;
+	for (size_t i = 2; i < MAX; i++)
+	{
+		if (sieve[i] != 0)
+			continue;
+		sieve[i] = i;
+		for (ll val = (ll)i * i; val < MAX; val+= i)
+		{
+			sieve[val] = i;
+		}
+	}
+}
+
+unsigned int fact[MAXF], pfact[MAXF];
+
+namespace Math {
+	ll gcd(ll a, ll b, ll& x, ll& y) {
+		if (b == 0) {
+			x = 1;
+			y = 0;
+			return a;
+		}
+		ll x1, y1;
+		ll ans = gcd(b, a % b, x1, y1);
+		x = y1;
+		y = x1 - (a / b) * y1;
+		return ans;
+	}
+	ll multiple(ll a, ll b, ll m = MOD) {
+		return (a * b) % m;
+	}
+	ll div(ll a, ll b, int m = MOD) {
+		ll x, y;
+		ll ans = gcd(b, m, x, y);
+		if (ans != 1)
+			abort();
+		x %= m;
+		x += m;
+		x %= m;
+		return multiple(a, x, m);
+	}
+}
+
+void init2()
+{
+	fact[0] = 1;
+	fact[1] = 1;
+	for (size_t i = 2; i < MAXF; i++)
+	{
+		fact[i] = ((ll)fact[i - 1] * i) % MOD;
+	}
+
+	pfact[MAXF - 1] = Math::div(1, fact[MAXF - 1], MOD);
+	/*for (size_t i = 1; i < MAXF - 1; i++)
+	{
+		pfact[i] = ((ll)pfact[i + 1] * ((ll)i + 1)) % MOD;
+	}*/
+
+	for (int i = MAXF - 2; i >= 1; i--)
+	{
+		pfact[i] = ((ll)pfact[i + 1] * ((ll)i + 1)) % MOD;
+	}
+}
+
+unsigned int C(ll n, ll k)
+{
+	ll ans = fact[n];
+	ans *= pfact[k];
+	ans %= MOD;
+	ans *= pfact[n - k];
+	ans %= MOD;
+	return ans;
+}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
