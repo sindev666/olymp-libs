@@ -9,9 +9,6 @@ namespace std
 {
 	namespace __gnu_pbds
 	{
-		struct null_type
-		{
-		};
 		struct rb_tree_tag
 		{
 			using tree_type = rb_tree_tag;
