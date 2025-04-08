@@ -1,0 +1,835 @@
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/rope>
+
+using namespace std;
+using namespace __gnu_pbds;
+using namespace __gnu_cxx;
+
+// /*
+//                                                //////////**DEFINES - START**//////////
+
+#define ret return
+#define fi first
+#define se second
+#define mp make_pair
+#define all(x) x.begin(), x.end()
+#define be(x) x.begin()
+#define en(x) x.end()
+#define sz(x) x.size()
+#define for0(i, n) for (ll   i = 0; i < (n); ++i)
+#define for1(i, n) for (ll   i = 1; i < (n); ++i)
+#define rfor0(i, n) for (ll   i = (n) - 1; i >= 0; --i)
+#define rfor1(i, n) for (ll   i = (n) - 1; i >= 1; --i)
+#define rep(i, a, n) for (ll   i = a; i < ll(n); ++i)
+#define rrep(i, a, n) for (ll   i = a - 1; i >= ll(n); --i)
+#define popcount __builtin_popcount
+#define popcountll __builtin_popcountll
+#define fastIO() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define con continue
+#define pb push_back
+#define pob pop_back
+#define deb(x) cout << (#x) << " is " << (x) << endl
+#define ins insert
+#define len(s) (s).length()
+#define gi greater<int>()
+#define gll greater<ll  >()
+#define gstr greater<string>()
+#define gpll greater<pair<ll  , ll  >>()
+#define rast(x1, y1, x2, y2) sqrtf((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
+#define rev reverse
+#define ub upper_bound
+#define lb lower_bound
+#define bs binary_search
+#define rs resize
+#define last(a) a.back()
+#define co count
+#define ba(a) a.back()
+#define um unordered_map
+#define rsun(a) a.resize(unique(a.begin(),a.end())-a.begin())
+//#define endl '\n'
+//#define sqrt sqrt1
+#ifdef A1
+bool local = true;
+#else
+bool local = false;
+#endif
+
+//                                                \\\\\\\\\\**DEFINES - END**\\\\\\\\\\
+// */
+
+// /*
+//                                                //////////**TYPEDEFS - START**//////////
+
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<char> vc;
+typedef pair<int, int> pii;
+typedef vector<pii> vpii;
+typedef vector<string> vs;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<ull> vull;
+typedef pair<ll, ll> pll;
+typedef vector<ll> vll;
+typedef vector<pll> vpll;
+typedef pair<double, double> pdd;
+typedef long double ld;
+typedef double D;
+typedef vector<ld> vld;
+typedef vector<pair<ld, ld>> vpld;
+typedef string str;
+typedef set<ll> sll;
+typedef set<int> si;
+typedef set<str> ss;
+typedef set<pii> spii;
+typedef multiset<int> msi;
+typedef multiset<ll> msll;
+typedef multiset<str> mss;
+typedef multiset<pii> mspii;
+typedef multiset<pll> mspll;
+typedef map<str, str> mps;
+typedef map<int, int> mpi;
+typedef map<ll, ll> mpll;
+typedef map<int, vi> mpvi;
+typedef map<int, vll> mpvll;
+typedef map<char, int> mpci;
+typedef multimap<ll, ll> mmpll;
+typedef multimap<str, str> mmps;
+typedef multimap<int, int> mmpi;
+typedef vector<vector<int>> vvi;
+typedef vector<vector<ll  >> vvll;
+typedef vector<vector<long double>> vvld;
+typedef vector<vector<char>> vvc;
+typedef vector<vs> vvs;
+typedef vector<D> vD;
+typedef set<pair<ll, ll>> spll;
+typedef pair<ull, ull> pull;
+typedef vector<pull> vpull;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef set<char> sc;
+typedef queue<int> qi;
+typedef queue<ll> qll;
+typedef queue<bool> qb;
+typedef vector<sll> vsll;
+typedef queue<pair<ll, ll>> qpll;
+typedef vector<vector<pair<int, int>>> vvpii;
+typedef vector<vector<pair<ll, ll>>> vvpll;
+typedef vector<spll> vspll;
+typedef multiset<char> msc;
+typedef queue<str> qs;
+typedef vector<set<int>> vsi;
+typedef priority_queue<ll> pqll;
+typedef vector<vsll> vvsll;
+typedef pair<ld, ld> pld;
+typedef vector<vvll> vvvll;
+typedef set<ld> sld;
+typedef tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
+
+//                                                \\\\\\\\\\**TYPEDEFS - END**\\\\\\\\\\
+// */
+
+
+// /*
+//                                                //////////**CONSTANTS - START**//////////
+
+const long double pi = 3.141592653589793238462643383279;
+const ll mod1 = 1e9 + 7;
+const ll mod2 = 998244353;
+const ll MAXLL = 9223372036854775807;
+const ll MAXINT = 2147483647;
+const long double eps = 1e-9;
+
+//                                                \\\\\\\\\\**CONSTANTS - END**\\\\\\\\\\
+// */
+
+
+// /*
+//                                                //////////**TEMPLATES - START**//////////
+
+
+template<typename T>
+istream &operator>>(istream &in, vector<T> &a) {
+    for (T &i: a) in >> i;
+    return in;
+}
+
+template<typename T1, typename T2>
+istream &operator>>(istream &in, pair<T1, T2> &a) {
+    cin >> a.fi >> a.se;
+    return in;
+}
+
+template<typename T1, typename T2>
+ostream &operator<<(ostream &out, pair<T1, T2> &a) {
+    cout << a.fi << " " << a.se;
+    return out;
+}
+
+template<typename T1, typename T2>
+istream &operator>>(istream &in, vector<pair<T1, T2>> &a) {
+    for (pair<T1, T2> &i: a) in >> i.fi >> i.se;
+    return in;
+}
+
+template<typename T>
+ostream &operator<<(ostream &out, const vector<T> &a) {
+    for (auto i: a) {
+        out << i << " ";
+    }
+    return out;
+}
+
+template<typename T1, typename T2>
+ostream &operator<<(ostream &out, vector<pair<T1, T2>> &a) {
+    for (pair<T1, T2> i: a) out << i.fi << " " << i.se << endl;
+    return out;
+}
+
+template<typename T1>
+ostream &operator<<(ostream &out, vector<vector<T1>> &a) {
+    for (vector<T1> i: a) {
+        for (T1 j: i) out << j << " ";
+        out << endl;
+    }
+    return out;
+}
+
+template<typename T1, typename T2>
+inline T1 min(T1 a, T2 b) {
+    b = (T1) b;
+    return a > b ? b : a;
+}
+
+template<typename T1, typename T2>
+inline T1 max(T1 a, T2 b) {
+    b = (T1) b;
+    return a > b ? a : b;
+}
+
+template<typename T1, typename T2>
+inline void amin(T1 &a, T2 b) {
+    a = min(a, b);
+}
+
+template<typename T1, typename T2>
+inline void amax(T1 &a, T2 b) {
+    a = max(a, b);
+}
+
+
+//                                                \\\\\\\\\\**TEMPLATES - END**\\\\\\\\\\
+// */
+
+
+
+
+// This bear is a good alternative to duck!!!
+/*
+    ▒▒▒▒      ▒▒▒▒▒▒
+  ▒▒░░░░▒▒▒▒▒▒▒░░░░▒▒
+ ▒▒░░░░░░▒▒▒▒▒░░░  ░▒▒
+▒▒░   ░░▒▒▒▒▒▒▒░░  ░▒▒
+▒▒░  ░▒▒▒▒▒▒▒▒▒▒▒ ░▒
+ ▒░░▒▒▒▒▒▒█▒▒▒▒▒█▒▒
+   ▒▒▒▒▒▒░██▒▒▒▒██ ▒
+   ▒▒▒▒▒░░░░███░░░▒▒
+   ▒▒▒▒▒░░   ███    ▒▒
+    ▒▒░░  ▀▄▄▄▄▄▄▀░▒
+     ▒▒▒░     ▀▀ ░▒▒
+   ▒▒▒░▒░░░▒▒▒░ ▒▒▒▒▒
+  ▒▒▒░▒▒▒▒▒░░░▒░▒▒▒▒▒▒
+ ▒▒▒░▒▒▒▒   ▒▒  ▒▒▒▒▒▒▒
+ ▒▒▒░▒░░         ░▒▒▒▒
+ */
+
+
+
+double getTime() {
+    return clock() / (double) CLOCKS_PER_SEC;
+}
+
+//mt19937_64 rn(chrono::steady_clock::now().time_since_epoch().count());
+mt19937_64 rn(8);
+
+ll rnd(ll l, ll r) {
+    ll a = rn() % (r - l + 1) + l;
+    ret a;
+}
+
+void solve();
+
+ll T = 1;
+
+signed main() {
+    //setlocale(LC_ALL, "rus");
+    //fastIO()
+    if (local) {
+        //freopen("input.txt", "r", stdin);
+        //freopen("output.txt", "w", stdout);
+    }
+    cin >> T;
+    while (T--) {
+        solve();
+    }
+    if (local) {
+        cout.precision(32);
+        cout << endl << fixed << "time = " << getTime();
+    }
+    return 0;
+}
+
+
+/*
+	___        __              __   ______          __        _____ __             __          __  __
+   /   | _____/ /___  ______ _/ /  / ____/___  ____/ /__     / ___// /_____ ______/ /______   / / / /__  ________
+  / /| |/ ___/ __/ / / / __ `/ /  / /   / __ \/ __  / _ \    \__ \/ __/ __ `/ ___/ __/ ___/  / /_/ / _ \/ ___/ _ \
+ / ___ / /__/ /_/ /_/ / /_/ / /  / /___/ /_/ / /_/ /  __/   ___/ / /_/ /_/ / /  / /_(__  )  / __  /  __/ /  /  __/
+/_/  |_\___/\__/\__,_/\__,_/_/   \____/\____/\__,_/\___/   /____/\__/\__,_/_/   \__/____/  /_/ /_/\___/_/   \___/
+*/
+
+
+
+#define x fi
+#define y se
+
+bool bl;
+ll cnt = 0;
+ll P;
+
+vpll a1, a2;
+vpll a(5), AA;
+spll net;
+spll p1;
+pll p;
+vll X{0, 1, 1, 1, 0, -1, -1, -1}, Y{1, 1, 0, -1, -1, -1, 0, 1};
+pll re2;
+
+ll get(pll A) {
+    ret A.fi - A.se;
+}
+
+ll get2(pll A) {
+    ret A.fi + A.se;
+}
+
+pair<pll, pll> go() {
+    pll t = p;
+    vll e(8);
+    iota(all(e), 0);
+    shuffle(all(e), rn);
+    for0(j, 8) {
+        ll i = e[j];
+        if ((get(AA[0]) != get({t.fi + X[i], t.se + Y[i]}) || net.find(AA[0]) != en(net)) &&
+            (get(AA[1]) != get({t.fi + X[i], t.se + Y[i]}) || net.find(AA[1]) != en(net)) &&
+            (get(AA[2]) != get({t.fi + X[i], t.se + Y[i]}) || net.find(AA[2]) != en(net)) &&
+            (get(AA[3]) != get({t.fi + X[i], t.se + Y[i]}) || net.find(AA[3]) != en(net)) &&
+            (get(AA[4]) != get({t.fi + X[i], t.se + Y[i]}) || net.find(AA[4]) != en(net)) &&
+            (get2(AA[0]) != get2({t.fi + X[i], t.se + Y[i]}) || net.find(AA[0]) != en(net)) &&
+            (get2(AA[1]) != get2({t.fi + X[i], t.se + Y[i]}) || net.find(AA[1]) != en(net)) &&
+            (get2(AA[2]) != get2({t.fi + X[i], t.se + Y[i]}) || net.find(AA[2]) != en(net)) &&
+            (get2(AA[3]) != get2({t.fi + X[i], t.se + Y[i]}) || net.find(AA[3]) != en(net)) &&
+            (get2(AA[4]) != get2({t.fi + X[i], t.se + Y[i]}) || net.find(AA[4]) != en(net))) {
+            t = {t.fi + X[i], t.se + Y[i]};
+            break;
+        }
+    }
+    if (p != t)
+        cout << p.fi << " " << p.se << " " << t.fi << " " << t.se << endl;
+    else
+        cout << "0 0 0 0" << endl;
+    if (p != t)
+        ret {p, t};
+    ret {{0, 0},
+         {0, 0}};
+}
+
+void z(pll A, pll b) {
+    if (abs(b.fi) >= 1e9-5 || abs(b.se) >= 1e9-5) while (1) {}
+    if (bl) ret;
+    cnt++;
+    if (cnt > 48) while (1) {}
+    if (net.find(A) != en(net))while (0) {}
+    for0(i, 5) {
+        if (AA[i] != A) {
+            if (net.find(AA[i]) == en(net)) {
+                if (get(AA[i]) == get(A) && get(AA[i]) == get(b)) {
+                    if (min(A.fi, b.fi) <= AA[i].fi && max(A.fi, b.fi) >= AA[i].fi) while (0) {}
+                }
+                if (get2(AA[i]) == get2(A) && get2(AA[i]) == get2(b)) {
+                    if (min(A.fi, b.fi) <= AA[i].fi && max(A.fi, b.fi) >= AA[i].fi) while (0) {}
+                }
+            }
+        }
+    }
+    auto it = lb(all(AA), A) - be(AA);
+    if (it >= 5) while (0) {}
+    AA[it] = b;
+    sort(all(AA));
+    re2 = p;
+    pll re;
+    pair<pll, pll> t;
+    cout << A.fi << " " << A.se << " " << b.fi << " " << b.se << endl;
+
+
+//    t = go();
+    cin >> t.fi.fi >> t.fi.se >> t.se.fi >> t.se.se;
+
+    P=get(t.se);
+    if (bs(all(AA), t.se)) net.insert(t.se);
+    p = mp(t.se.fi, t.se.se);
+    p1.ins(p);
+    if (t.fi == t.se) bl = 1;
+    else bl = 0;
+    ret;
+}
+
+pll to(pll A, ll t) {
+    ret {A.fi - (get(A) - t) / 2, A.se + (get(A) - t) / 2};
+}
+
+void update() {
+    pll t;
+    sort(all(a), [](pll A, pll b) {
+        ret (((A.fi + A.se) & 1) == ((b.fi + b.se) & 1) ? (A.fi == b.fi ? A.se < b.se : A.fi < b.fi) :
+             ((A.fi + A.se) & 1) <
+             ((b.fi + b.se) & 1));
+    });
+//    swap(a[2], a[4]);
+//    sort(all(A), [](pll A, pll b) { ret (A.fi == b.fi ? A.se > b.se : A.fi > b.fi); });
+    ll cnt = 0;
+    for0(i, 5) if (((a[i].fi + a[i].se) & 1)) cnt++;
+    bool f1 = 0, f2 = 0;
+    if ((P & 1) == 0) {
+        if (cnt == 2) {
+            if (get2(a[3]) == get2(a[4])) {
+                f2 = 1;
+            }
+            else if (get(a[3]) != get(a[4])) {
+                t = a[4];
+                a[4] = to(a[4], get(a[3]));
+                z(t, a[4]);
+
+            }
+
+
+            if (get(a[0]) == get(a[1]) && get(a[1]) == get(a[2])) {
+                sort(be(a), be(a) + 3, [](pll a, pll b) { ret a.fi < b.fi; });
+                a.erase(be(a));
+            } else if (get(a[0]) == get(a[1])) {
+                a.erase(be(a) + 2);
+            } else if (get(a[1]) == get(a[2])) {
+                a.erase(be(a));
+            } else if (get(a[0]) == get(a[2])) {
+                a.erase(be(a) + 1);
+            } else if (get2(a[0]) == get2(a[1]) && get2(a[1]) == get2(a[2])) {
+                sort(be(a), be(a) + 3, [](pll a, pll b) { ret a.fi < b.fi; });
+                a.erase(be(a) + 1);
+                f1 = 1;
+            } else if (get2(a[0]) == get2(a[1])) {
+                a.erase(be(a) + 2);
+                sort(be(a), be(a) + 2, [](pll a, pll b) { ret a.fi < b.fi; });
+                f1 = 1;
+            } else if (get2(a[0]) == get2(a[2])) {
+                a.erase(be(a) + 1);
+                sort(be(a), be(a) + 2, [](pll a, pll b) { ret a.fi < b.fi; });
+                f1 = 1;
+            } else if (get2(a[2]) == get2(a[1])) {
+                a.erase(be(a));
+                sort(be(a), be(a) + 2, [](pll a, pll b) { ret a.fi < b.fi; });
+                f1 = 1;
+            } else {
+                a.erase(be(a) + 2);
+                t = a[1];
+                a[1] = to(a[1], get(a[0]));
+                z(t, a[1]);
+
+            }
+        } else {
+            if (get(a[2]) == get(a[3]) && get(a[3]) == get(a[4])) {
+                sort(be(a) + 2, be(a) + 5, [](pll a, pll b) { ret a.fi < b.fi; });
+                a.erase(be(a) + 2);
+            } else if (get(a[2]) == get(a[3])) {
+                a.erase(be(a) + 4);
+            } else if (get(a[3]) == get(a[4])) {
+                a.erase(be(a) + 2);
+            } else if (get(a[2]) == get(a[4])) {
+                a.erase(be(a) + 3);
+            } else if (get2(a[2]) == get2(a[3]) && get2(a[3]) == get2(a[4])) {
+                sort(be(a) + 2, be(a) + 5, [](pll a, pll b) { ret a.fi < b.fi; });
+                a.erase(be(a) + 3);
+                f2 = 1;
+            } else if (get2(a[2]) == get2(a[3])) {
+                a.erase(be(a) + 4);
+                sort(be(a) + 2, be(a) + 4, [](pll a, pll b) { ret a.fi < b.fi; });
+                f2 = 1;
+            } else if (get2(a[2]) == get2(a[4])) {
+                a.erase(be(a) + 3);
+                sort(be(a) + 2, be(a) + 4, [](pll a, pll b) { ret a.fi < b.fi; });
+                f2 = 1;
+            } else if (get2(a[4]) == get2(a[3])) {
+                a.erase(be(a) + 2);
+                sort(be(a) + 2, be(a) + 4, [](pll a, pll b) { ret a.fi < b.fi; });
+                f2 = 1;
+            } else {
+                a.erase(be(a) + 4);
+                t = a[3];
+                a[3] = to(a[3], get(a[2]));
+                z(t, a[3]);
+
+            }
+
+            if (get2(a[0]) == get2(a[1])) {
+                f1 = 1;
+            }
+            else if (get(a[0]) != get(a[1])) {
+                t = a[1];
+                a[1] = to(a[1], get(a[0]));
+                z(t, a[1]);
+
+            }
+        }
+    }
+    else {
+        if (cnt == 2) {
+            if (get(a[0]) == get(a[1]) && get(a[1]) == get(a[2])) {
+                sort(be(a), be(a) + 3, [](pll a, pll b) { ret a.fi < b.fi; });
+                a.erase(be(a));
+            } else if (get(a[0]) == get(a[1])) {
+                a.erase(be(a) + 2);
+            } else if (get(a[1]) == get(a[2])) {
+                a.erase(be(a));
+            } else if (get(a[0]) == get(a[2])) {
+                a.erase(be(a) + 1);
+            }
+            else if (get2(a[0]) == get2(a[1]) && get2(a[1]) == get2(a[2])) {
+                sort(be(a), be(a) + 3, [](pll a, pll b) { ret a.fi < b.fi; });
+                a.erase(be(a) + 1);
+                f1 = 1;
+            } else if (get2(a[0]) == get2(a[1])) {
+                a.erase(be(a) + 2);
+                sort(be(a), be(a) + 2, [](pll a, pll b) { ret a.fi < b.fi; });
+                f1 = 1;
+            } else if (get2(a[0]) == get2(a[2])) {
+                a.erase(be(a) + 1);
+                sort(be(a), be(a) + 2, [](pll a, pll b) { ret a.fi < b.fi; });
+                f1 = 1;
+            } else if (get2(a[2]) == get2(a[1])) {
+                a.erase(be(a));
+                sort(be(a), be(a) + 2, [](pll a, pll b) { ret a.fi < b.fi; });
+                f1 = 1;
+            } else {
+                a.erase(be(a) + 2);
+                t = a[1];
+                a[1] = to(a[1], get(a[0]));
+                z(t, a[1]);
+
+            }
+
+            if (get2(a[2]) == get2(a[3])) {
+                f2 = 1;
+            }
+
+            else if (get(a[2]) != get(a[3])) {
+                t = a[3];
+                a[3] = to(a[3], get(a[2]));
+                z(t, a[3]);
+
+            }
+        } else {
+            if (get2(a[0]) == get2(a[1])) {
+                f1 = 1;
+            }
+
+            else if (get(a[0]) != get(a[1])) {
+                t = a[1];
+                a[1] = to(a[1], get(a[0]));
+                z(t, a[1]);
+
+            }
+
+            if (get(a[2]) == get(a[3]) && get(a[3]) == get(a[4])) {
+                sort(be(a) + 2, be(a) + 5, [](pll a, pll b) { ret a.fi < b.fi; });
+                a.erase(be(a) + 2);
+            } else if (get(a[2]) == get(a[3])) {
+                a.erase(be(a) + 4);
+            } else if (get(a[3]) == get(a[4])) {
+                a.erase(be(a) + 2);
+            } else if (get(a[2]) == get(a[4])) {
+                a.erase(be(a) + 3);
+            }
+            else if (get2(a[2]) == get2(a[3]) && get2(a[3]) == get2(a[4])) {
+                sort(be(a) + 2, be(a) + 5, [](pll a, pll b) { ret a.fi < b.fi; });
+                a.erase(be(a) + 3);
+                f2 = 1;
+            } else if (get2(a[2]) == get2(a[3])) {
+                a.erase(be(a) + 4);
+                sort(be(a) + 2, be(a) + 4, [](pll a, pll b) { ret a.fi < b.fi; });
+                f2 = 1;
+            } else if (get2(a[2]) == get2(a[4])) {
+                a.erase(be(a) + 3);
+                sort(be(a) + 2, be(a) + 4, [](pll a, pll b) { ret a.fi < b.fi; });
+                f2 = 1;
+            } else if (get2(a[4]) == get2(a[3])) {
+                a.erase(be(a) + 2);
+                sort(be(a) + 2, be(a) + 4, [](pll a, pll b) { ret a.fi < b.fi; });
+                f2 = 1;
+            } else {
+                a.erase(be(a) + 4);
+                t = a[3];
+                a[3] = to(a[3], get(a[2]));
+                z(t, a[3]);
+
+            }
+        }
+    }
+    if (f1) {
+        if (a[0].fi > a[1].fi) {
+            swap(a[1], a[0]);
+        }
+        t = a[0];
+        a[0] = {a[0].fi - 4e8, a[0].se + 4e8};
+        z(t, a[0]);
+
+        t = a[1];
+        a[1] = {a[1].fi + 6e8, a[1].se - 6e8};
+        z(t, a[1]);
+
+    }
+    if (f2) {
+        if (a[2].fi > a[3].fi) {
+            swap(a[2], a[3]);
+        }
+        t = a[2];
+        a[2] = {a[2].fi - 4e8, a[2].se + 4e8};
+        z(t, a[2]);
+
+        t = a[3];
+        a[3] = {a[3].fi + 6e8, a[3].se - 6e8};
+        z(t, a[3]);
+
+    }
+    sort(all(a), [](pll a, pll b) { ret ((a.fi == b.fi) ? (a.se > b.se) : (a.fi > b.fi)); });
+
+    for0(i, 4) {
+        t = a[i];
+        a[i] = {a[i].fi + (5 - i) * 1e7, a[i].se + (5 - i) * 1e7};
+        z(t, a[i]);
+
+    }
+
+    sort(all(a));
+    for0(i, 5) {
+        if (!bs(all(a), AA[i]) && net.find(AA[i]) == en(net)) {
+            t = AA[i];
+            pll t1 = {AA[i].fi - 6e8, AA[i].se - 6e8};
+            z(t, t1);
+            break;
+        }
+    }
+}
+
+const ll C1 = 3;
+const ll C2 = 3;
+
+vpll gen1() {
+    vpll A(5);
+    for0(i, 5) {
+        A[i] = {rnd(-C1, C1), rnd(-C1, C1)};
+        cout << A[i].fi << " " << A[i].se << " ";
+    }
+    ret A;
+}
+
+pll gen2() {
+    pll A;
+    A = {rnd(-C2, C2), rnd(-C2, C2)};
+    cout << A.fi << " " << A.se << endl;
+    ret A;
+}
+
+
+void solve() {
+//    pll t1,t2;
+//    cin>>t1>>t2;
+//    t1=to(t1, get(t2));
+//    cout<<t1<<endl;
+//    ret;
+    cnt = 0;
+    bl = 0;
+    a1.clear();
+    a2.clear();
+    a.rs(5);
+    net.clear();
+    pll t;
+
+//    a = gen1();
+    cin >> a;
+//    p = gen2();
+    cin >> p;
+    P=get(p);
+    AA = a;
+    sort(all(AA));
+
+    ll cnt = 0;
+    for0(i, 5) {
+        if ((a[i].fi - a[i].se) & 1) cnt++;
+    }
+
+    if (cnt != 2 && cnt != 3) {
+        cout << "0 0 0 0" << endl;
+        ret;
+    }
+    update();
+    if (sz(p1) < 2) while (0) {}
+    for0(i, 4) {
+        if (((a[i].fi + a[i].se) & 1) && sz(a1) < 2) // нечётные
+        {
+            a1.pb(a[i]);
+        } else if (!((a[i].fi + a[i].se) & 1) && sz(a2) < 2) // чётные
+        {
+            a2.pb(a[i]);
+        } else {
+            while (0) {}
+        }
+    }
+    if (sz(a1) < 2 || sz(a2) < 2) while (0) {}
+    t = a1[0];
+    a1[0] = to(a1[0], P - 50);
+    z(t, a1[0]);
+
+
+    t = a2[0];
+    a2[0] = to(a2[0], get(a1[0]) - 1);
+    z(t, a2[0]);
+
+
+    t = a1[1];
+    a1[1] = to(a1[1], P + 50);
+    z(t, a1[1]);
+
+
+    t = a2[1];
+    a2[1] = to(a2[1], get(a1[1]) + 1);
+    z(t, a2[1]);
+
+    while (max(get(a1[0]), get(a2[0])) + 4 != min(get(a1[1]), get(a2[1]))) {
+        if (P - min(get(a1[0]), get(a2[0])) >= max(get(a1[1]), get(a2[1])) - P) {
+            if (P&1)
+            {
+                if (get(a1[0])==P-2) break;
+                t=a1[0];
+                a1[0]=to(a1[0], P-2);
+                z(t, a1[0]);
+                if (get(a1[0])-1!=get(a2[0]))
+                {
+                    t=a2[0];
+                    a2[0]=to(a2[0], get(a1[0])-1);
+                    z(t, a2[0]);
+                }
+            }
+            else
+            {
+                if (get(a2[0])==P-2) break;
+                t=a2[0];
+                a2[0]=to(a2[0], P-2);
+                z(t, a2[0]);
+                if (get(a2[0])-1!=get(a1[0]))
+                {
+                    t=a1[0];
+                    a1[0]=to(a1[0], get(a2[0])-1);
+                    z(t, a1[0]);
+                }
+            }
+        } else {
+            if (P&1)
+            {
+                if (get(a1[1])==P+2) break;
+                t=a1[1];
+                a1[1]=to(a1[1], P+2);
+                z(t, a1[1]);
+                if (get(a1[1])+1!=get(a2[1]))
+                {
+                    t=a2[1];
+                    a2[1]=to(a2[1], get(a1[1])+1);
+                    z(t, a2[1]);
+                }
+            }
+            else
+            {
+                if (get(a2[1])==P+2) break;
+                t=a2[1];
+                a2[1]=to(a2[1], P+2);
+                z(t, a2[1]);
+                if (get(a2[1])+1!=get(a1[1]))
+                {
+                    t=a1[1];
+                    a1[1]=to(a1[1], get(a2[1])+1);
+                    z(t, a1[1]);
+                }
+            }
+        }
+    }
+
+    while (max(get(a1[0]), get(a2[0])) + 2 != min(get(a1[1]), get(a2[1]))) {
+        if (get(p) - min(get(a1[0]), get(a2[0])) >= max(get(a1[1]), get(a2[1])) - get(p)) {
+            if (get(a1[0]) < get(a2[0])) {
+                t = a1[0];
+                a1[0] = to(a1[0], get(a1[0]) + 2);
+                z(t, a1[0]);
+
+            } else {
+                t = a2[0];
+                a2[0] = to(a2[0], get(a2[0]) + 2);
+                z(t, a2[0]);
+
+            }
+        } else {
+            if (get(a1[1]) > get(a2[1])) {
+                t = a1[1];
+                a1[1] = to(a1[1], get(a1[1]) - 2);
+                z(t, a1[1]);
+
+            } else {
+                t = a2[1];
+                a2[1] = to(a2[1], get(a2[1]) - 2);
+                z(t, a2[1]);
+
+            }
+        }
+    }
+
+    if (P & 1) {
+        t = a1[1];
+        a1[1] = {p.fi + 2, p.se};
+        z(t, a1[1]);
+
+
+        t = a1[0];
+        a1[0] = {p.fi - 2, p.se};
+        z(t, a1[0]);
+
+
+        t = a1[0];
+        a1[0] = {p.fi - 2, p.se};
+        z(t, a1[0]);
+
+    } else {
+        t = a2[1];
+        a2[1] = {p.fi + 2, p.se};
+        z(t, a2[1]);
+
+
+        t = a2[0];
+        a2[0] = {p.fi - 2, p.se};
+        z(t, a2[0]);
+
+
+        t = a2[0];
+        a2[0] = {p.fi - 2, p.se};
+        z(t, a2[0]);
+
+    }
+    if (!bl) while (0) {}
+}

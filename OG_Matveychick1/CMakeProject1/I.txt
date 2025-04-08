@@ -1,0 +1,957 @@
+#include bitsstdc++.h
+#include extpb_dsassoc_container.hpp
+#include extrope
+
+using namespace std;
+using namespace __gnu_pbds;
+using namespace __gnu_cxx;
+
+ 
+                                                DEFINES - START
+
+#define ret return
+#define fi first
+#define se second
+#define mp make_pair
+#define all(x) x.begin(), x.end()
+#define be(x) x.begin()
+#define en(x) x.end()
+#define sz(x) ll(x.size())
+#define for0(i, n) for (ll   i = 0; i  (n); ++i)
+#define for1(i, n) for (ll   i = 1; i  (n); ++i)
+#define rfor0(i, n) for (ll   i = (n) - 1; i = 0; --i)
+#define rfor1(i, n) for (ll   i = (n) - 1; i = 1; --i)
+#define rep(i, a, n) for (ll   i = a; i  ll(n); ++i)
+#define rrep(i, a, n) for (ll   i = a - 1; i = ll(n); --i)
+#define popcount __builtin_popcount
+#define popcountll __builtin_popcountll
+#define fastIO() iossync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define con continue
+#define pb push_back
+#define pob pop_back
+#define deb(x) cout  (#x)   is   (x)  endl
+#define ins insert
+#define len(s) (s).length()
+#define gi greaterint()
+#define gll greaterll  ()
+#define gstr greaterstring()
+#define gpll greaterpairll  , ll  ()
+#define rast(x1, y1, x2, y2) sqrt((x1-x2)(x1-x2)+(y1-y2)(y1-y2))
+#define rev reverse
+#define ub upper_bound
+#define lb lower_bound
+#define bs binary_search
+#define rs resize
+#define last(a) a.back()
+#define co count
+#define ba(a) a.back()
+#define um unordered_map
+#define rsun(a) a.resize(unique(a.begin(), a.end())-a.begin())
+#define endl 'n'
+#ifdef OG_Matveychick1
+bool local = true;
+#else
+bool local = false;
+#endif
+
+                                                DEFINES - END
+     
+
+ 
+                                                TYPEDEFS - START
+
+typedef vectorint vi;
+typedef vectorvi vvi;
+typedef vectorchar vc;
+typedef pairint, int pii;
+typedef vectorpii vpii;
+typedef vectorstring vs;
+typedef int ll;
+typedef unsigned long long ull;
+typedef vectorull vull;
+typedef pairll, ll pll;
+typedef vectorll vll;
+typedef vectorpll vpll;
+typedef pairdouble, double pdd;
+typedef long double ld;
+typedef double D;
+typedef vectorld vld;
+typedef vectorpairld, ld
+        vpld;
+typedef string str;
+typedef setll sll;
+typedef setint si;
+typedef setstr ss;
+typedef setpii spii;
+typedef multisetint msi;
+typedef multisetll msll;
+typedef multisetstr mss;
+typedef multisetpii mspii;
+typedef multisetpll mspll;
+typedef mapstr, str mps;
+typedef mapint, int mpi;
+typedef mapll, ll mpll;
+typedef mapint, vi mpvi;
+typedef mapint, vll mpvll;
+typedef mapchar, int mpci;
+typedef multimapll, ll mmpll;
+typedef multimapstr, str mmps;
+typedef multimapint, int mmpi;
+typedef vectorvectorint vvi;
+typedef vectorvectorll vvll;
+typedef vectorvectorlong double vvld;
+typedef vectorvvi vvvi;
+typedef vectorvectorchar vvc;
+typedef vectorvs vvs;
+typedef vectorD vD;
+typedef setpairll, ll
+        spll;
+typedef pairull, ull pull;
+typedef vectorpull vpull;
+typedef vectorbool vb;
+typedef vectorvb vvb;
+typedef setchar sc;
+typedef queueint qi;
+typedef queuell qll;
+typedef queuebool qb;
+typedef vectorsll vsll;
+typedef queuepairll, ll
+        qpll;
+typedef vectorvectorpairint, int
+        vvpii;
+typedef vectorvectorpairll, ll
+        vvpll;
+typedef vectorspll vspll;
+typedef multisetchar msc;
+typedef queuestr qs;
+typedef vectorsetint vsi;
+typedef priority_queuell pqll;
+typedef vectorvsll vvsll;
+typedef pairld, ld pld;
+typedef vectorvvll vvvll;
+typedef setld sld;
+typedef vectorvpld vvpld;
+typedef treell, null_type, lessll, rb_tree_tag, tree_order_statistics_node_update
+        ordered_set;
+typedef treell, null_type, less_equalll, rb_tree_tag, tree_order_statistics_node_update
+        ordered_multiset;
+
+                                                TYPEDEFS - END
+     
+
+
+ 
+                                                CONSTANTS - START
+
+constexpr long double pi = 3.1415592653589793238462643383279;
+const ll mod1 = 1e9 + 7;
+const ll mod2 = 998244353;
+const ll MAXLL = 9223372036854775807;
+const ll MAXINT = 2147483647;
+const long double eps = 1e-9;
+
+                                                CONSTANTS - END
+     
+
+
+ 
+                                                TEMPLATES - START
+
+
+templatetypename T
+istream &operator(istream &in, vectorT &a) {
+    for (T &i  a) in  i;
+    return in;
+}
+
+templatetypename T1, typename T2
+istream &operator(istream &in, pairT1, T2 &a) {
+    in  a.fi  a.se;
+    return in;
+}
+
+templatetypename T1, typename T2
+ostream &operator(ostream &out, pairT1, T2 &a) {
+    out  a.fi     a.se;
+    return out;
+}
+
+templatetypename T1, typename T2
+istream &operator(istream &in, vectorpairT1, T2
+
+&a) {
+    for (
+        pairT1, T2 &i
+             a)
+        in  i.fi  i.
+                se;
+    return
+            in;
+}
+
+templatetypename T
+ostream &operator(ostream &out, const vectorT &a) {
+    for (auto i  a) {
+        out  i   ;
+    }
+    return out;
+}
+
+templatetypename T1, typename T2
+ostream &operator(ostream &out, vectorpairT1, T2
+
+&a) {
+    for (
+        pairT1, T2 i
+             a)
+        out  i.fi     i.se 
+            endl;
+    return
+            out;
+}
+
+templatetypename T1
+ostream &operator(ostream &out, vectorvectorT1 &a) {
+    for (vectorT1 i  a) {
+        for (T1 j  i) out  j   ;
+        out  endl;
+    }
+    return out;
+}
+
+templatetypename T1, typename T2
+inline T1 min(T1 a, T2 b) {
+    b = (T1) b;
+    return a  b  b  a;
+}
+
+templatetypename T1, typename T2
+inline T1 max(T1 a, T2 b) {
+    b = (T1) b;
+    return a  b  a  b;
+}
+
+templatetypename T1, typename T2
+inline void amin(T1 &a, T2 b) {
+    a = min(a, b);
+}
+
+templatetypename T1, typename T2
+inline void amax(T1 &a, T2 b) {
+    a = max(a, b);
+}
+
+
+                                                TEMPLATES - END
+     
+
+
+ This bear is a good alternative to duck!!!
+
+          
+  
+   
+     
+   
+ 
+    
+   
+          
+      
+           
+    
+  
+      
+          
+ 
+
+
+double getTime() {
+    return clock()  (double) CLOCKS_PER_SEC;
+}
+
+
+mt19937_64 rn(chronosteady_clocknow().time_since_epoch().count());
+mt19937_64 rn(4);
+
+ll rnd(ll l, ll r) {
+    ll a = rn() % (r - l + 1) + l;
+    return a;
+}
+
+void solve();
+
+ll T = 1;
+
+signed main(int argc, char argv) {
+    setlocale(LC_ALL, RUS);
+    fastIO()
+    cout.precision(12);
+    cout  fixed;
+    if (local && argc == 1) {
+        freopen(input.txt, r, stdin);
+                freopen(002.out, w, stdout);
+    }
+    cin  T;
+    while (T--) {
+        solve();
+    }
+    if (local && argc == 1) {
+        cout  endl  fixed  time =   getTime();
+    }
+    return 0;
+}
+
+
+
+    ___        __              __   ______          __        _____ __             __          __  __
+       _____ ___  ______ _    _______  ____ __      ___ _____ ______ ______      __  ________
+     ___ __    __ `        __  __   _     __  __ __ ` ___ __ ___   _  _  ___ _ 
+  ___  __ _ _  _     ___ _  _   __   ___  _ _     _(__  )   __    __     __
+_  ________,___,__   __________,____   ________,__   ______  _ _____   ___
+
+
+
+using num = ll;
+
+struct vec {
+    num x, y;
+
+    vec(num x, num y)  x(x), y(y) {}
+
+    vec()  x(0), y(0) {}
+
+    bool operator==(vec a) {
+        ret abs(a.x - x)  eps && abs(a.y - y)  eps;
+    }
+
+    void operator+=(vec a) {
+        x += a.x;
+        y += a.y;
+    }
+
+    vec operator+(vec a) {
+        ret {x + a.x, y + a.y};
+    }
+
+    void operator-=(vec a) {
+        x -= a.x;
+        y -= a.y;
+    }
+
+    vec operator-(vec a) {
+        ret {x - a.x, y - a.y};
+    }
+
+    void operator=(vec a) {
+        x = a.x;
+        y = a.y;
+    }
+
+    vec operator(num a) {
+        ret {x  a, y  a};
+    }
+
+    num operator(vec a) {
+        ret x  a.x + y  a.y;
+    }
+
+    void operator=(num a) {
+        x = a;
+        y = a;
+    }
+
+    void operator=(num a) {
+        x = a;
+        y = a;
+    }
+
+    num operator%(vec a) {
+        long long ans = (long long) x  a.y - (long long) y  a.x;
+        amax(ans, -1);
+        amin(ans, 1);
+        ret ans;
+    }
+
+    num len2() {
+        ret x  x + y  y;
+    }
+
+    friend istream &operator(istream &in, vec &a) {
+        in  a.x  a.y;
+        ret in;
+    }
+
+    friend ostream &operator(ostream &out, vec a) {
+        out  a.x     a.y   ;
+        ret out;
+    }
+
+    num napr(vec a) {
+        if ((this) % a  0)ret 1;
+        else if ((this) % a  0)ret -1;
+        else
+            ret 0;
+    }
+
+    ld angle(vec a) {
+        ret atan2l(a % this, a  this);
+    }
+
+    ld polar_angle() {
+        ret atan2l(y, x);
+    }
+
+    bool point_in_ray(vec a) точка
+    {
+        ret (abs(this % a - 0)  eps && this  a = -eps);
+    }
+
+    bool point_in_square_ray(vec a) точка
+    {
+        ret (this  a = 0);
+    }
+
+    bool point_in_line(vec a) точка
+    {
+        ret (this % a == 0);
+    }
+
+    bool point_in_segment(vec a) точка
+    {
+        ret (abs(this % a - 0)  eps && this  a = -eps && vec(0 - x, 0 - y)  vec(a.x - x, a.y - y) = -eps);
+    }
+
+    bool point_in_square_segment(vec a) точка
+    {
+        ret (this  a = 0 && vec(0 - x, 0 - y)  vec(a.x - x, a.y - y) = 0);
+    }
+
+    bool point_in_angle(vec a, vec b) две крайние точки угла
+    {
+        ret (a.napr(b)  a.napr(this) = 0 && b.napr(a)  b.napr(this) = 0);
+    }
+
+    ld dist_from_point_to_line(vec a) точка
+    {
+        ret this % a  sqrt(len2());
+    }
+
+    ld dist_from_point_to_ray(vec a) точка
+    {
+        ret (point_in_square_ray(a)  this % a  sqrtl(len2())  min(sqrtl(vec(a).len2()),
+                                                                      sqrtl(vec(a - this).len2())));
+    }
+
+    ld dist_from_point_to_segment(vec a) точка
+    {
+        ret (point_in_square_segment(a)  this % a  sqrtl(len2())  min(sqrtl(vec(a).len2()),
+                                                                          sqrtl(vec(a - this).len2())));
+    }
+
+    void turn() {
+        swap(x, y);
+        x = -x;
+    }
+
+    void turn(ld a) {
+        this = vec(x  cosl(a) - y  sinl(a), x  sinl(a) + y  cosl(a));
+    }
+};
+
+bool segment_in_segment(vec a1, vec a2, vec b1, vec b2) {
+    vec a(a2.x - a1.x, a2.y - a1.y), b(a1.x - a2.x, a1.y - a2.y), al(b1.x - a1.x, b1.y - a1.y), ar(b2.x - a1.x,
+                                                                                                   b2.y - a1.y), bl(
+            b1.x - a2.x, b1.y - a2.y), br(b2.x - a2.x, b2.y - a2.y);
+    vec c(b2.x - b1.x, b2.y - b1.y), d(b1.x - b2.x, b1.y - b2.y), cl(a1.x - b1.x, a1.y - b1.y), cr(a2.x - b1.x,
+                                                                                                   a2.y - b1.y), dl(
+            a1.x - b2.x, a1.y - b2.y), dr(a2.x - b2.x, a2.y - b2.y);
+    if ((a % al)  (a % ar) = 0 && (b % bl)  (b % br) = 0 && (c % cl)  (c % cr) = 0 &&
+        (d % dl)  (d % dr) = 0) {
+        if (a % al == 0 && a % ar == 0 && (max(a1.x, a2.x)  min(b1.x, b2.x)  max(b1.x, b2.x)  min(a1.x, a2.x) 
+                                           max(a1.y, a2.y)  min(b1.y, b2.y) 
+                                           max(b1.y, b2.y)  min(a1.y, a2.y))) {
+            ret 0;
+        }
+        ret 1;
+    } else {
+        ret 0;
+    }
+}
+
+ld dist_from_segment_to_segment(vec a1, vec a2, vec b1, vec b2) {
+    ret (segment_in_segment(a1, a2, b1, b2)  0.0  min(abs(vec(a2 - a1).dist_from_point_to_segment(vec(b1 - a1))),
+                                                        min(abs(vec(a2 - a1).dist_from_point_to_segment(
+                                                                    vec(b2 - a1))),
+                                                            min(abs(vec(b2 - b1).dist_from_point_to_segment(
+                                                                        a1 - b1)),
+                                                                abs(vec(b2 - b1).dist_from_point_to_segment(
+                                                                        a2 - b1))))));
+}
+
+struct line {
+    num a, b, c;
+
+    line() {}
+
+    line(vec x, vec y) {
+        a = y.y - x.y;
+        b = x.x - y.x;
+        c = -a  x.x - b  x.y;
+    }
+
+    line(num aa, num bb, vec cc) {
+        a = aa;
+        b = bb;
+        c = -a  cc.x - b  cc.y;
+    }
+
+    line(num a, num b, num c)  a(a), b(b), c(c) {}
+
+    friend ostream &operator(ostream &out, line &_a) {
+        out  _a.a     _a.b     _a.c;
+        ret out;
+    }
+
+    friend istream &operator(istream &in, line &_a) {
+        in  _a.a  _a.b  _a.c;
+        ret in;
+    }
+
+    bool point_in_line(vec aa) {
+        ret (a  aa.x + b  aa.y + c == 0);
+    }
+
+    num napr(vec aa) {
+        if (a  aa.x + b  aa.y + c  0)ret -1;
+        else if (a  aa.x + b  aa.y + c  0) ret 1;
+        else
+            ret 0;
+    }
+
+    ld dist_from_point_to_line(vec aa) точка
+    {
+        ret (a  aa.x + b  aa.y + c)  sqrtl(vec(a, b).len2());
+    }
+
+    vec point_of_intersection_of_lines(line aa) {
+        if (a != 0)
+            ret vec((-b  (aa.c  a - c  aa.a)  (b  aa.a - aa.b  a) - c)  a,
+                    (aa.c  a - c  aa.a)  (b  aa.a - aa.b  a));
+        else
+            ret vec((-aa.b  (c  aa.a - aa.c  a)  (aa.b  a - b  aa.a) - aa.c)  aa.a,
+                    (c  aa.a - aa.c  a)  (aa.b  a - b  aa.a));
+    }
+
+    bool lines_is_parallel(line aa) {
+        if (a == 0) {
+            if (aa.a != 0) ret 0;
+            ret 1;
+        } else {
+            if (b == 0) {
+                if (aa.b != 0) ret 0;
+                ret 1;
+            }
+            ret abs(aa.a  a - aa.b  b)  eps;
+        }
+    }
+
+    ld dist_of_parallel_lines(line aa) {
+        vec z(a, b);
+        ld d = (-c)  sqrtl(z.len2());
+        z = d  sqrtl(z.len2());
+        ret aa.dist_from_point_to_line(z);
+    }
+};
+
+struct circle {
+    num r;
+    vec t;
+
+    circle() {}
+
+    circle(num x, num y, num r)  t(vec(x, y)), r(r) {}
+
+    bool point_in_circle(vec a) {
+        ret sqrtl(vec(a - vec(t.x, t.y)).len2()) = r;
+    }
+
+    friend istream &operator(istream &in, circle &a) {
+        cin  a.t.x  a.t.y  a.r;
+        ret in;
+    }
+
+    bool intersection_of_segnent(vec a, vec b) {
+        ret vec(b - a).dist_from_point_to_segment(vec(t - a))  r;
+    }
+
+    pairvec, vec tangents_from_point(vec a) {
+        pairvec, vec re;
+        num d = rast(t.x, t.y, a.x, a.y);
+        ld u = asin(r  d);
+        re = {t - a, t - a};
+        re.fi.turn(u);
+        re.se.turn(-u);
+        re.fi = sqrtl(re.fi.len2());
+        re.se = sqrtl(re.se.len2());
+        num d1 = sqrtl(d  d - r  r);
+        re.fi = d1;
+        re.se = d1;
+        re.fi += a;
+        re.se += a;
+        ret re;
+    }
+
+    ld ln() {
+        ret pi  2  r;
+    }
+};
+
+line bisector_of_three_points(vec x, vec y, vec z) {
+    y -= x;
+    z -= x;
+    vec X = vec(y - z)  (sqrtl(z.len2())  (sqrtl(z.len2()) + sqrtl(y.len2())));
+    X += z;
+    X += x;
+    ret line(x, X);
+}
+
+ll area_of_triangle(vec a, vec b, vec c) {
+    ret vec(b - a) % vec(c - a);
+}
+
+ll area_of_polygon(vectorvec &a) {
+    ll sum = 0;
+    rep(i, 2, sz(a)) {
+        sum += area_of_triangle(a[0], a[i - 1], a[i]);
+    }
+    ret sum;
+}
+
+bool point_in_polygon(ll n, vec p, vectorvec &a) {
+    a.pb(a[0]);
+    for0(i, n) {
+        if (a[i] == p) {
+            a.pob();
+            ret 1;
+        }
+    }
+    for1(i, n + 1) {
+        if (vec(a[i - 1] - a[i]).point_in_segment(p - a[i])) {
+            a.pob();
+            ret 1;
+        }
+    }
+    ld sum = 0;
+    for1(i, n + 1) {
+        sum += vec(a[i] - p).angle(a[i - 1] - p);
+    }
+    a.pob();
+    ret (abs(abs(sum) - pi  2)  eps  1  0);
+}
+
+bool point_in_triangle(vec a, vec b, vec c, vec t) {
+    ret abs(area_of_triangle(a, b, c)) ==
+        abs(area_of_triangle(a, c, t)) + abs(area_of_triangle(c, b, t)) + abs(area_of_triangle(a, b, t));
+}
+
+bool point_in_convex_polygon(ll n, vec p, vectorvec &a) {
+    ll l = 0, r = n;
+    p -= a[0];
+    if (p.x  0) ret 0;
+    while (l + 1  r) {
+        ll m = (l + r)  2;
+        (a[m].polar_angle() = p.polar_angle()  l  r) = m;
+    }
+    if (l == n - 1  l == 0) ret 0;
+    ret point_in_triangle(vec(0, 0), a[l], a[l + 1], p);
+}
+
+bool convex_polygon(vectorvec a) {
+    a.pb(a[0]);
+    a.pb(a[1]);
+    ll n = sz(a);
+    bool mi = 0, ma = 0;
+    rep(i, 2, n) {
+        if (vec(a[i - 1] - a[i - 2]) % vec(a[i] - a[i - 2])  0)ma = 1;
+        if (vec(a[i - 1] - a[i - 2]) % vec(a[i] - a[i - 2])  0)mi = 1;
+    }
+    ret !(mi && ma);
+}
+
+vectorvec convex_hull(ll n, vectorvec &a) {
+    vec st(10000000, 100000000);
+    for0(i, n) {
+        if (a[i].x  st.x  (a[i].x == st.x && a[i].y  st.y)) {
+            st = a[i];
+        }
+    }
+    for0(i, n) {
+        a[i] -= st;
+    }
+    sort(all(a), [&](vec &a, vec &b) { ret (a % b == 0  a.len2()  b.len2()  a % b  0); });
+    vectorvec ans;
+    for0(i, n) {
+        while (sz(ans)  1 && vec(ans[sz(ans) - 1] - ans[sz(ans) - 2]) % vec(a[i] - ans[sz(ans) - 1]) = 0) {
+            ans.pob();
+        }
+        ans.pb(a[i]);
+    }
+    for (auto &x  ans) x += st;
+    ret ans;
+}
+
+ld area_of_union_of_triangle(vectorvectorvec &_a) {
+    struct segment {
+        vec s, f;
+        ll id;
+
+        segment(vec &a, vec &b, ll &id)  s(a), f(b), id(id) {}
+    };
+    struct item {
+        ld y1, y2;
+        ll id;
+
+        item() {}
+
+        item(ld y1, ld y2, ll id)  y1(y1), y2(y2), id(id) {}
+    };
+    ll n = 3  sz(_a);
+    vectorsegment a;
+    for0(i, n  3) {
+        for0(j, 3) {
+            a.pb({_a[i][j], _a[i][(j + 1) % 3], i});
+        }
+    }
+    vectorld b;
+    for0(i, n)rep(j, i + 1, n)if (!(line(a[i].s, a[i].f).lines_is_parallel(line(a[j].s, a[j].f)) &&
+                                    dist_from_segment_to_segment(a[i].s, a[i].f, a[j].s, a[j].f)  eps) &&
+                                  dist_from_segment_to_segment(a[i].s, a[i].f, a[j].s, a[j].f)  eps)
+                b.pb(line(a[i].s, a[i].f).point_of_intersection_of_lines(line(a[j].s, a[j].f)).x);
+    sort(all(b));
+    b.erase(unique(all(b), [&](ld &a, ld &b) { ret abs(a - b)  eps; }), en(b));
+    ld re = 0;
+    vll used(n  3, -1);
+    vectoritem c(n);
+    for0(i, sz(b) - 1) {
+        ld x1 = b[i], x2 = b[i + 1];
+        ll csz = 0;
+        for0(j, n) {
+            if (abs(a[j].f.x - a[j].s.x)  eps && min(a[j].s.x, a[j].f.x) = x1 + eps &&
+                max(a[j].f.x, a[j].s.x) = x2 - eps) {
+                c[csz++] = item(line(vec(x1, 0), vec(x1, 1)).point_of_intersection_of_lines(line(a[j].s, a[j].f)).y,
+                                line(vec(x2, 0), vec(x2, 1)).point_of_intersection_of_lines(line(a[j].s, a[j].f)).y,
+                                a[j].id);
+            }
+        }
+        if (csz % 2) exit(0);
+        sort(be(c), be(c) + csz,
+             [&](item &a, item &b) { ret a.y1  b.y1 - eps  abs(a.y1 - b.y1)  eps && a.y2  b.y2 - eps; });
+        ld pl = 0;
+        ll cnt = 0;
+        item l, r;
+        for0(j, csz) {
+            if (used[c[j].id] == i) {
+                cnt--;
+                if (!cnt) {
+                    r = c[j];
+                    pl += r.y1 - l.y1 + r.y2 - l.y2;
+                }
+            } else {
+                cnt++;
+                if (cnt == 1) {
+                    l = c[j];
+                }
+            }
+            used[c[j].id] = i;
+        }
+        re += pl  (x2 - x1)  2.0;
+    }
+    ret re;
+}
+
+#pragma GCC optimize(O3,unroll-loops)
+
+void reorder_polygon(vectorvec &P) {
+    size_t pos = 0;
+    for (size_t i = 1; i  P.size(); i++) {
+        if (P[i].y  P[pos].y  (P[i].y == P[pos].y && P[i].x  P[pos].x))
+            pos = i;
+    }
+    rotate(P.begin(), P.begin() + pos, P.end());
+}
+
+vectorvec minkowski(vectorvec a, vectorvec b) {
+    rev(all(a));
+    rev(all(b));
+    if (!sz(a)) ret b;
+    if (!sz(b)) ret a;
+    if (sz(a) == 1) {
+        for (auto &x  b) x += a[0];
+        ret b;
+    }
+    if (sz(b) == 1) {
+        for (auto &x  a) x += b[0];
+        ret a;
+    }
+    reorder_polygon(a);
+    reorder_polygon(b);
+    a.push_back(a[0]);
+    a.push_back(a[1]);
+    b.push_back(b[0]);
+    b.push_back(b[1]);
+    vectorvec c;
+    size_t i = 0, j = 0;
+    while (i  a.size() - 2  j  b.size() - 2) {
+        c.push_back(a[i] + b[j]);
+        auto cross = (a[i + 1] - a[i]) % (b[j + 1] - b[j]);
+        if (cross = 0 && i  a.size() - 2)
+            ++i;
+        if (cross = 0 && j  b.size() - 2)
+            ++j;
+    }
+    return c;
+}
+
+struct ST {
+    struct node {
+        struct hull {
+            vectorvec a;
+
+            hull merge(hull &b) {
+                hull c;
+                ll i = 0, j = 0;
+                while (i  sz(a)  j  sz(b.a)) {
+                    if (i != sz(a) && j != sz(b.a) && a[i] == b.a[j]) {
+                        c.a.pb(a[i++]);
+                        j++;
+                    } else if (i != sz(a) &&
+                               (j == sz(b.a)  (a[i].x  b.a[j].x)  (a[i].x == b.a[j].x && a[i].y  b.a[j].y))) {
+                        c.a.pb(a[i++]);
+                    } else {
+                        c.a.pb(b.a[j++]);
+                    }
+                }
+                c = c.build(0);
+                ret c;
+            }
+
+            hull build(bool fl) {
+                if (fl) sort(all(a), [](vec b, vec c) { ret b.x == c.x  b.y  c.y  b.x  c.x; });
+                hull b;
+                for (auto [x, y]  a) {
+                    while (sz(b.a)  1 && (b.a[sz(b.a) - 1] - b.a[sz(b.a) - 2]) % (vec(x, y) - b.a[sz(b.a) - 2]) = 0)
+                        b.a.pob();
+                    b.a.pb(vec(x, y));
+                }
+                ret b;
+            }
+        };
+
+        hull up, dn;
+
+        node() {}
+
+        node(vectorvec &b) {
+            dn.a = b;
+            up.a = b;
+            for (auto &[x, y]  up.a) y = -y;
+            dn = dn.build(1);
+            up = up.build(1);
+        }
+
+        node(hull up, hull dn)  up(up), dn(dn) {}
+
+        vectorvec get() {
+            vectorvec a;
+            rfor0(i, sz(dn.a)) a.pb(dn.a[i]);
+            for0(i, sz(up.a)) if (up.a[i].x != dn.a[0].x &&
+                                  (dn.a[sz(dn.a) - 1].y != -up.a[i].y  dn.a[sz(dn.a) - 1].x != up.a[i].x))
+                    a.pb(vec(up.a[i].x, -up.a[i].y));
+            ret a;
+        }
+
+        node merge(node a) {
+            ret node(up.merge(a.up), dn.merge(a.dn));
+        }
+    };
+
+    vectornode t;
+    ll n;
+
+    ST(ll n, vectorvectorvec &b)  n(n), t(4  n) {
+        build(1, 0, n, b);
+    }
+
+    void build(ll v, ll l, ll r, vectorvectorvec &b) {
+        if (l + 1 == r) {
+            t[v] = node(b[l]);
+            ret;
+        }
+        ll m = (l + r)  2;
+        build(v  2, l, m, b);
+        build(v  2 + 1, m, r, b);
+    }
+
+    long long get() {
+        ret get(1, 0, n);
+    }
+
+    long long get(vectorvec &a, vectorvec &b) {
+        if (!sz(a)  !sz(b)) ret 0;
+        for (auto &[x, y]  b) x = -x, y = -y;
+        auto c = minkowski(a, b);
+        long long ans = 0;
+        for (auto [x, y]  c) amax(ans, (long long) x  x + (long long) y  y);
+        ret ans;
+    }
+
+    node merge(node &a, node &b) {
+        ret a.merge(b);
+    }
+
+    long long get(ll v, ll l, ll r) {
+        if (l + 1 == r) ret 0;
+        ll m = (l + r)  2;
+        long long ans = max(get(v  2, l, m), get(v  2 + 1, m, r));
+        vectorvec L, R;
+        build(L, t[v  2]);
+        build(R, t[v  2 + 1]);
+        amax(ans, get(L, R));
+        t[v] = merge(t[v  2], t[v  2 + 1]);
+        ret ans;
+    }
+
+    void build(vectorvec &a, node &v) {
+        a = v.get();
+    }
+};
+
+struct node {
+    ll x, y, dx, dy, c;
+};
+
+ll n, L;
+vectornode a;
+
+long long f(ll x) {
+    vectorvectorvec b(n);
+    for0(i, n) b[a[i].c].pb(vec(a[i].x + a[i].dx  x, a[i].y + a[i].dy  x));
+    ST t(n, b);
+    ret t.get();
+}
+
+void solve() {
+    cin  n  L;
+    a.rs(n);
+    for0(i, n) cin  a[i].x  a[i].y  a[i].dx  a[i].dy  a[i].c, a[i].c--;
+    ll l = 0, r = L;
+    while (l + 1  r) {
+        ll ml = (l + r)  2, mr = ml + 1;
+        if (f(ml)  f(mr)) l = ml;
+        else r = ml;
+    }
+    long long ans = (long long) 2e18 + 5;
+    rep(i, l, r + 1) amin(ans, f(i));
+    cout  sqrtl(ans)  endl;
+}
