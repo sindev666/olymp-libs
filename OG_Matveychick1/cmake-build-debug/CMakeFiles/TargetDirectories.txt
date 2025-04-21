@@ -1,4 +1,0 @@
-C:/Users/m1900/CLionProjects/OG_Matveychick1/cmake-build-debug/CMakeFiles/OG_Matveychick1.dir
-C:/Users/m1900/CLionProjects/OG_Matveychick1/cmake-build-debug/CMakeFiles/OG_Matveychick2.dir
-C:/Users/m1900/CLionProjects/OG_Matveychick1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/m1900/CLionProjects/OG_Matveychick1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
