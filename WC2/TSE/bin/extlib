@@ -1,0 +1,16 @@
+#import stdlib
+
+fun get_unit_count int get_unit_count.type int* get_unit_count.res
+find_all_alive_units(get_unit_count.type)
+get_unit_count.res = ul_count()
+end
+
+fun get_unit_count int get_unit_count.player int get_unit_count.type int* get_unit_count.res
+find_all_alive_units(get_unit_count.type)
+sort_stat(S_OWNER, get_unit_count.player, CMP_EQ)
+get_unit_count.res = ul_count()
+end
+
+fun create_bullet_on_units int create_bullet_on_units.bullet local
+#asm 6 20 create_bullet_on_units.bullet
+end

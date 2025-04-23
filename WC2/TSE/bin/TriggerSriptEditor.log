@@ -1,0 +1,43 @@
+﻿  pch.cpp
+  CCOOLBAR1.cpp
+  CMSFLEXGRID1.cpp
+  CPUDFile.cpp
+  CSBARCTRL1.cpp
+  CTOOLBAR1.cpp
+  DebugToolset.cpp
+P:\ide\TriggerSriptEditor\DebugToolset.cpp(132,23): warning C4018: '<=': signed/unsigned mismatch
+  HelpTool.cpp
+  TriggerSriptEditor.cpp
+  TriggerSriptEditorDlg.cpp
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(187,28): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(340,24): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(379,11): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(397,23): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(406,28): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(503,21): warning C4267: 'initializing': conversion from 'size_t' to 'char', possible loss of data
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(531,25): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(594,21): warning C4267: 'initializing': conversion from 'size_t' to 'char', possible loss of data
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(603,25): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(763,31): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'unsigned int', possible loss of data
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(764,28): warning C4244: 'argument': conversion from 'ULONGLONG' to 'size_t', possible loss of data
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(765,13): warning C4244: 'argument': conversion from 'ULONGLONG' to 'UINT', possible loss of data
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(788,24): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(833,26): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(907,27): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(930,26): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(947,26): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(1112,27): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(1253,26): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(1339,26): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(1395,27): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(1430,27): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(1444,27): warning C4018: '<': signed/unsigned mismatch
+P:\ide\TriggerSriptEditor\TriggerSriptEditorDlg.cpp(1532,29): warning C4018: '<': signed/unsigned mismatch
+  Generating code
+  0 of 1397 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  TriggerSriptEditor.vcxproj -> P:\ide\TriggerSriptEditor\Release\TriggerSriptEditor.exe
+  "pwsh.exe" не является внутренней или внешней
+  командой, исполняемой программой или пакетным файлом.
