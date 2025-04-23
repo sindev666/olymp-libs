@@ -1,0 +1,1006 @@
+ENG;translated by Mistral
+Footman
+Grunt
+Peasant
+Peon
+Ballista
+Catapult
+Knight
+Ogre
+Archer
+Troll
+Mage
+Death Knight
+Paladin
+Ogre-mage
+Dwarves
+Goblins
+Attack Peasant
+Attack Peon
+Ranger
+Berserk
+Alleria
+Teron
+Kurdran
+Dentarg
+Hadgar
+Grom
+Human Tanker
+Orc Tanker
+Human Transport
+Orc Transport
+Elven Destroyer
+Troll Destroyer
+Battleship
+Juggernaught
+TYPE A100
+Deathwing
+Human Minelayer
+Orc Minelayer
+Submarine
+Turtle
+Flyer
+Zeppelin
+Grifon
+Dragon
+Tyralyon
+Eye
+Danat
+Kargat
+TYPE A5
+Chogal
+Lothar
+Guldan
+Uter
+Zuljin
+TYPE A600
+Skeleton
+Demon
+Critter
+Farm
+Pig Farm
+Human Barrack
+Orc Barrack
+Church
+Altar
+Human Scout Tower
+Orc Scout Tower
+Stables
+Ogre Mound
+Inventor
+Alchemist
+Aviary
+Roost
+Wharf
+Shipyard
+Town Hall
+Great Hall
+Elven Lumbermill
+Troll Lumbermill
+Human Foundry
+Orc Foundry
+Mage Tower
+Temple
+Human Blacksmith
+Orc Blacksmith
+Human Refinery
+Orc Refinery
+Human Platform
+Orc Platform
+Keep
+Stronghold
+Castle
+Fortress
+Gold Mine
+Oil Path
+Human Start
+Orc Start
+Human Arrow Tower
+Orc Arrow Tower
+Human Cannon Tower
+Orc Cannon Tower
+Circle of Power
+Portal
+Runestone
+Human Wall
+Orc Wall
+Any Building
+Any Man
+Any Unit
+Any Building 2x2
+Any Building 3x3
+Any Building 4x4
+Red
+Blue
+Green
+Violet
+Orange
+Black
+White
+Yellow
+PLAYER9
+PLAYER10
+PLAYER11
+PLAYER12
+PLAYER13
+PLAYER14
+PLAYER15
+Neutral
+Local
+Equals (==)
+Not Equals (!=)
+Greater or Equals (>=)
+Smaller or Equals (<=)
+Greater (>)
+Smaller (<)
+Gold
+Lumber
+Oil
+Gold 
+Lumber 
+Oil 
+Inviz
+Blood
+Armor
+Haste
+Slow
+Arrows
+Swords
+Armor
+Ships Damage
+Ships Armor
+Ships Speed
+Catapults Damage
+Vision
+Heal
+Greater Heal
+Exorcism
+Fire Shield
+Fireball
+Slow
+Invisibility
+Polymorph
+Blizzard
+Eye
+Bloodlust
+Raise Dead
+Coil
+Whirlwind
+Haste
+Unholy Armor
+Runes
+Death and Decay
+Rescued in circle Units
+Rescued Units
+Lost Building
+Lost Units
+Rasings
+Kills
+All Building
+All Units
+Grunts/Foots
+Active Grunts/Foots
+Archers/Trolls
+Active Archers/Trolls
+Berserks/Rangers
+Active Berserks/Rangers
+Catapults/Ballistas
+Active Catapults/Ballistas
+Ogres/Knight
+Active Ogres/Knights
+Mages/DK
+Active Mages/DK
+Sappers
+Active Sappers
+Flyers
+Active Flyers
+Dragons/Grifons
+Active Dragons/Grifons
+Destroyers
+Active Destroyers
+Juggs/Battles
+Active Juggs/Battles
+Submarines
+Active Submarines
+Transports
+Active Transports
+Tankers
+Peons
+Active Sea War Units
+Active Air
+NPC
+Farms
+Barracks
+1 tier THs
+2 tier THs
+3 tier THs
+Lumbermills
+Smiths
+Towers
+Inventors/Alchemists
+Stableses/Mounds
+Shipyards
+Foundries
+Refineries
+Platforms
+Aviaries
+Altars/Churches
+War Buildings
+Food Limit
+Runestones
+Portals
+Basic Buildings
+Draw X coord
+Draw X coord 2byte
+Draw Y coord
+Draw Y coord 2byte
+Sequence
+Sequence 2byte
+Sequence Flag
+Animation Timer
+Animation
+Frame
+Face
+UNKNOWN_UNIT_STAT_11
+UNKNOWN_UNIT_STAT_12
+UNKNOWN_UNIT_STAT_13
+UNKNOWN_UNIT_STAT_14
+UNKNOWN_UNIT_STAT_15
+UNKNOWN_UNIT_STAT_16
+UNKNOWN_UNIT_STAT_17
+UNKNOWN_UNIT_STAT_18
+UNKNOWN_UNIT_STAT_19
+UNKNOWN_UNIT_STAT_20
+UNKNOWN_UNIT_STAT_21
+UNKNOWN_UNIT_STAT_22
+UNKNOWN_UNIT_STAT_23
+X coord
+X coord 2byte
+Y coord
+Y coord 2byte
+Flags1
+Flags2
+Flags3
+Flags4
+AIFlags1
+AIFlags2
+HP
+HP 2byte
+Aggro counter
+Commands id
+Mana
+ID
+VizMask1
+VizMask2
+Movement type
+Sprite id
+Owner
+Color
+Order
+Next Order
+Move path
+Move path 2
+Move path 3
+Move path 4
+Move path 5
+Move path 6
+Move path 7
+Move path 8
+Move path 9
+Move path 10
+Move path 11
+Move path 12
+Move path 13
+Move path 14
+Move path 15
+Move path 16
+Move path 17
+Move path 18
+Move path 19
+Move path 20
+Inviz
+Inviz 2byte
+Shield
+Shield 2byte
+Blood
+Blood 2byte
+Speed
+Speed 2byte
+AiSpells
+AiSpells 2byte
+NextFire
+NextFire 2byte
+FlashColor
+FlashCounter
+UNKNOWN_UNIT_STAT_82
+UNKNOWN_UNIT_STAT_83
+Attacker pointer
+Attacker pointer 2byte
+Attacker pointer 3byte
+Attacker pointer 4byte
+AI destination X
+AI destination X 2byte
+AI destination Y
+AI destination Y 2byte
+AI destination region
+UNKNOWN_UNIT_STAT_93
+UNKNOWN_UNIT_STAT_94
+AI destination flags
+UNKNOWN_UNIT_STAT_96
+UNKNOWN_UNIT_STAT_97
+UNKNOWN_UNIT_STAT_98
+UNKNOWN_UNIT_STAT_99
+UNKNOWN_UNIT_STAT_100
+UNKNOWN_UNIT_STAT_101
+UNKNOWN_UNIT_STAT_102
+UNKNOWN_UNIT_STAT_103
+Next unit pointer
+Next unit pointer 2byte
+Next unit pointer 3byte
+Next unit pointer 4byte
+Peon last harvest X
+Peon last harvest X 2byte
+Peon last harvest Y
+Peon last harvest Y 2byte
+Peon goldmine pointer
+Peon goldmine pointer 2byte
+Peon goldmine pointer 3byte
+Peon goldmine pointer 4byte
+Peon tree chops
+Peon harvest flags
+Peon AI param
+Peon AI param 2byte
+Kills
+UNKNOWN (War2Mod Counter)
+Attack counter
+Attack counter 2byte
+UNKNOWN_UNIT_STAT_124
+UNKNOWN_UNIT_STAT_125
+UNKNOWN_UNIT_STAT_126
+Peon build
+Peon build X
+Peon build X 2byte
+Resourses
+Resourses 2byte
+Order X
+Order X 2byte
+Order Y
+Order Y 2byte
+Order unit pointer
+Order unit pointer 2byte
+Order unit pointer 3byte
+Order unit pointer 4byte
+UNKNOWN_UNIT_STAT_140
+Target Order
+UNKNOWN_UNIT_STAT_142
+UNKNOWN_UNIT_STAT_143
+Target X1
+Target X1 2byte
+Target Y1
+Target Y1 2byte
+Target X2
+Target X2 2byte
+Target Y2
+Target Y2 2byte
+Allowed Units
+Allowed Upgrades
+Allowed Spells
+Learned Spells
+Footman/Grunt
+Peasant/Peon
+Ballista/Cata
+Knight/Ogre
+Archer/Troll
+Mage/DK
+Oil Tanker
+Destroyer
+Transport
+Battleship/Jugg
+Submarine
+Flyer
+Grifon/Dragon
+Unused Paladin/Ogre-mage
+Sappers
+Aviary
+Farm
+Barracks
+Lumbermill
+Stables
+Mage tower/temple
+Foundry
+Refinery
+Inventor/Alchemist
+Church/Altar
+Tower
+TH 1 tier
+TH 2 tier upgrade
+TH 3 tier upgrade
+Blacksmith
+Shipyard
+Unused Wall
+Ranged attack 1
+Ranged attack 2
+Melee attack 1
+Melee attack 2
+Armor 1
+Armor 2
+Ships attack 1
+Ships attack 2
+Ships armor 1
+Ships armor 2
+Ships speed 1
+Ships speed 2
+Catapult attack 1
+Catapult attack 2
+Unused upgr 14
+Unused upgr 15
+Ranger/Berserker
+Long range
+Schouting
+Marksmanship/Regen
+Unused upgr 20
+Unused upgr 21
+Unused upgr 22
+Unused upgr 23
+Unused upgr 24
+Unused upgr 25
+Unused upgr 26
+Unused upgr 27
+Unused upgr 28
+Unused upgr 29
+Unused upgr 30
+Unused upgr 31
+Unused Hallucinate
+Paladins/Ogre-mages
+Land
+Air
+Water
+Water can dock
+Gold
+Lumber
+Any
+Trees
+Rocks
+Walls
+Dead
+Die
+Stop
+Move
+Move Patrol
+Patrol
+Follow
+Follow Guard
+Attack
+Attack Target
+Attack Area
+Attack Wall
+Defend
+Stand
+Stand Attack
+Defend Ground
+Defend Stop
+Attack Ground
+Attack Ground Move
+Demolish
+Demolish Near
+Demolish At
+Build
+Harvest
+Return
+Enter
+Leave
+Repair
+Create Building
+Unload
+Dock
+Undock
+Wait
+Build Wait
+Enter Transport
+Leave Transport
+Traveling
+Building Build
+Spell Vision
+Spell Heal
+Spell Area Heal
+Spell Exorcism
+Spell Fireshield
+Spell Fireball
+Spell Slow
+Spell Invis
+Spell Polymorph
+Spell Blizzard
+Spell Eye
+Spell Blood
+Spell Raise
+Spell Coil
+Spell Wind
+Spell Haste
+Spell Armor
+Spell Runes
+Spell Rot
+Resurrect
+Wait Convert
+Victory Circle
+No order
+EXIT
+Victory/Loss table
+Mission obj
+Ally
+Viz
+Set Value
+Units list
+Get Param
+Compare Values
+Set Region
+Comps Viz
+Val to Gval
+Gval to Val
+V+V
+V-V
+V*V
+V/V
+V%V
+Transform units
+Create units value amount
+Create units
+Set Flag
+IF
+end IF
+Victory
+Defeat
+Change resource
+Build critters
+Addition builds
+Default trigger
+Count units
+Mana cost
+Center View
+IF not
+Set resource
+Compare resource
+Clear chat
+Show message
+Change speed
+Damage group
+Repair All
+Runestone
+Runes
+Change upgrade
+Timer
+Opponents
+Comp aggro
+Check ally
+Capture
+Peon Capture
+Capture All
+Portal
+Repair cats
+Wharf
+Allied portal
+Mage portal
+Cheats
+Build Demon
+Heroes
+Autoheal
+Ally All
+Fireball dmg
+Buff time
+Allied Transport
+Res exchange
+Can build runestone
+Can build portal
+Can build circle
+Peons attak mode
+Can steal res
+Manaburn
+Peon steal
+Local color
+Restrictions table
+Two-Head-Ogre
+Can build gold
+Can grow forest
+Rally point
+No random
+Blood fix
+Allow speed change
+Slow aura
+Death aura
+Devotion aura
+Vampire aura
+Prevent Loss
+Sneak hide
+First TH
+Fireshield flyers
+More resources
+Multicast
+Îne-sided ally
+Îne-sided viz
+Path fix
+AI fix
+Remove terrain
+Reveal map
+SaveLoad fix
+Units capture
+Get unit stat
+Briefing
+Victory video
+Defeat video
+Trigger speed
+Campaign map
+Check campaign
+Forsed race
+Create effect
+Play sound
+Set upgrade
+Get upgrade
+Get global kills
+Get region center
+Remove terrain in region
+Goldmine anywhere
+Forest anywhere
+Forest price
+Check slot
+Create units with Value arguments
+Towers attack speed
+Change mission obj custom
+Change unit name custom
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+Inviz
+Shield
+Blood
+Haste
+Flame
+Mana
+Heal
+Kill
+Ally
+Find all alive units
+Sort in region
+Sort stat
+Set stat
+Kill all
+Flame shield all
+Heal all
+Sort complete
+Teleport All
+Give All
+Sort number
+AI cast spells
+Order All
+Damage all
+Remove all
+Peon load
+Sort peon loaded
+Sort peon not loaded
+Reveal all
+Set region around unit
+Effect create on units
+Effect create around units
+Sort stat by value
+Play sound on unit
+Sort ally
+Damage all by player
+Sort not in region
+Teleport All to Value
+Lightning
+Hammer
+Fireball
+Fireshield
+Firespin
+Blizzard
+Rot
+Big cannon
+Exorcism
+Heal
+Coil
+Rune
+Tornado
+Stone
+Bolt
+Arrow
+Axe
+Dwarf torpedo
+Turtle torpedo
+Fire
+Big fire
+Cat hit
+Sparkle
+Boom
+Cannon
+Shot
+Cannon hit
+Demon fire
+Cross
+Human
+Computer
+Nobody
+NO
+YES
+Show Victory/Loss message:
+Show mission objective:
+Players
+will become
+allies
+enemies
+can see each other:
+Value
+Find all alive units:
+Sort units list - in region
+Sort units list - with stat
+that compared as
+with number
+To all units in list set stat
+Kill all units in list
+Place fireshield on all units in list
+Heal all units in list to
+Sort units list - completed units
+Teleport all units in list to
+Give all units in list to player
+Sort units list - stay no more than
+Get param
+from
+except
+with
+and result set to
+Flag
+Set Region coords:
+Comp shared vision
+GlobalValue
+write to
+load from
++=
+-=
+*=
+/=
+%=
+For player
+all units
+transform to unit
+create unit
+on coords
+Amount:
+Set
+True
+False
+Victory
+Defeat
+resource
+Activate build critters from farms
+Activate additional buildings for peons
+Default "kill all" game trigger
+amount of units in list
+Mana cost of
+mana
+Center view to coords
+Clear chat
+Show Message
+for
+sec
+Change game speed for fastest to
+Only unit
+can deal damage to unit
+Number:
+Peons can repair all units
+Runestone trigger
+Runestone: Invisibility
+Runestone: Shield
+Runestone: Blood
+Runestone: Haste
+Runestone: Flame
+Runestone: Mana regen
+Runestone: Heal
+Runestone: Kill all not my owner units
+Runestone: Only for my owner units
+Change Upgrade
+power to
+Set Timer
+Check number of opponents of player
+Allied comps aggro if attacked
+Check if players
+allied
+Capture low hp buildings
+Only peons can capture low hp buildings
+Capture all units if main base captured
+Portals trigger
+Peons can repair catapults
+Ships repairs near Shipyards
+Teleport only for allies
+Teleport only if portal have mage nearby
+Allow cheats
+Create Demons from circle of power
+Hero unit
+can be created in slot
+for humans
+for orcs
+Paladins autoheal trigger
+All allied on game start
+Fireball damage
+Duration of effect
+Transporting of allied units
+Players can exchange resources
+Can build runestone
+Can build portal
+Can build circle of power
+Workers have attack mode
+Can steal resources from enemy buildings
+Demon attacks have mana burn effect
+Peons can steal resources from other peons
+Check if Local player is
+in Restrictions table
+on position
+set
+Player
+Two-Head-Ogre mode controlling
+Can build gold mine
+Can grow forest
+Activate Rally point + Tower control
+No random damage
+Bloodlust always x2
+Allow change game speed
+Unit
+Have slow aura
+Have death aura
+Have defence aura
+Have vampire aura
+Can survive from critical hit
+Can hide
+Allow build other buildings without first TH
+This is Campaign map
+Check for previous completed map
+for campaign will have race
+Delete?
+Destroy all triggers?
+load from PUD map
+save to PUD map
+load from file
+save to file
+add new trigger
+select trigger
+move trigger
+delete trigger
+edit trigger
+duplicate trigger
+change language file
+Magic
+Upgrades
+Effects
+Add
+Sub
+Cmp
+Standart Buildings
+Units
+Active Units
+Other
+Statistics
+Human Buildings
+Orc Buldings
+Human Units
+Orc Units
+Neutral Units
+Human Heroes
+Orc Heroes
+Any
+Stats1
+Stats2
+Back
+Apply
+Conditions
+Units list
+Values
+Players
+Game
+Visual
+Build
+Mechanics
+Abilities
+Passive
+Special
+Campaign
+Extra
+Runes
+Action
+Only for multiplayer
+Colors
+Allow placing fireshield on flying units
+Cannot save
+MAX available size of triggers:
+Your triggers size:
+bytes
+Auto scroll
+More resources added for each building
+AI will try autocasting spells for this units
+This trigger allowed to be used localy
+This trigger is executed before game started
+Easy Multicast
+set allied status
+set shared vision status
+on
+off
+Unused
+Tables
+Order all units in list to
+Rename Value
+Rename Flag
+Pathfinding improvement fix
+AI fix plugin 
+Remove
+at coords
+Terrain
+Reveal map on coords
+with size
+for players
+Bug fix AI break with save/load
+Damage all units in list on
+Remove from map all units in list
+Load peons with resource
+Sort units list - peons loaded with resource
+Sort units list - peons not loaded with resource
+Set region around first unit from list with radius
+Reveal map around all units in list with size
+Units capture on low hp
+of first unit in list
+Effects
+Create effect
+Play sound
+on all units in list
+Create 8 effects
+around all units in list
+of first unit in list
+Sort units list - 
+with player
+Enemy
+Ally
+upgrade
+of player
+Number of kills of unit
+of player
+by player
+in position of first unit
+Sort units list - not in region
+X of region center
+Y of region center
+in region
+Allow build goldmine anywhere
+Allow grow forest anywhere
+Use ships speed upgrade for tower attack speed
+Grow forest gold price
+Check if player slot
+Change mission objectives to
+Change name of unit
+to
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270

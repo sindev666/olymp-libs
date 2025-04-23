@@ -1,0 +1,181 @@
+#import extlib
+//#define TEST 1
+#ifndef TEST
+wc2fix()
+#foreach pl 0..7
+c=get_unit_count(pl,U_FARM)
+d=get_unit_count(pl,U_PIGFARM)+c
+change_resource(pl,2,d,2)
+d=get_unit_count(pl,U_CRITTER)
+change_resource(pl,0,d,3)
+change_resource(pl,1,d,2)
+c=get_unit_count(pl,U_HLUMBER)
+d=get_unit_count(pl,U_OLUMBER)+c
+change_resource(pl,1,d,25)
+#endeach
+
+fun calc_kills int player
+#define target P_BLACK
+d=get_kills(player,target,U_SKELETON)
+change_resource(player,2,d,10)
+change_resource(player,1,d,10)
+change_resource(player,0,d,10)
+d=get_kills(player,target,U_DRAGON)
+change_resource(player,2,d,100)
+change_resource(player,0,d,200)
+end
+calc_kills(0)
+calc_kills(1)
+calc_kills(6)
+//d=get_kills(P_RED,P_BLUE,U_FOOTMAN)
+find_all_alive_units(U_MINE)
+set_stat(S_RESOURCES,10000)
+
+change_unit_name(U_ZULJIN, Roofle)
+change_unit_name(U_GULDAN, Viceroy of Death)
+change_unit_name(U_DANATH, Tesla Tower)
+change_unit_name(U_TYRALYON, Dark Soul)
+change_unit_name(U_KURDRAN,Bird of Happiness)
+change_unit_name(U_HADGAR, Wise man)
+change_unit_name(U_DENTARG, Infected Fiend)
+change_unit_name(U_PEON, Dark Worker)
+change_unit_name(U_GRUNT, Infected)
+change_unit_name(U_TROLL, Dark Archer)
+change_unit_name(U_GROM, Angry Sceleton)
+
+change_mission_text(Destroy all enemy farms)
+
+find_all_alive_units(U_PIGFARM)
+sort_stat(S_OWNER, P_RED, CMP_NEQ)
+sort_stat(S_OWNER, P_BLUE, CMP_NEQ)
+sort_stat(S_OWNER, P_WHITE, CMP_NEQ)
+c=ul_count()
+
+if c = 0
+victory()
+done
+
+build_sheeps()
+
+campaign()
+rally()
+autoheal()
+multicast()
+set_race(P_RED,1)
+set_race(P_BLUE,1)
+set_race(P_GREEN,2)
+set_race(P_VIOLET,2)
+set_race(P_ORANGE,2)
+set_race(P_BLACK,2)
+set_race(P_YELLOW,2)
+set_race(P_WHITE,1)
+team(P_RED,P_BLUE)
+team(P_BLUE,P_WHITE)
+team(P_RED,P_WHITE)
+
+
+if 0 timer 7
+message(Prepare to DEFEND, 2)
+unit_createnxy(3, U_SKELETON, P_BLACK,5,49)
+unit_createnxy(2, U_SKELETON, P_BLACK,35,12)
+unit_createnxy(2, U_SKELETON, P_GREEN,100,60)
+unit_createnxy(3, U_SKELETON, P_BLACK,10,20)
+unit_createnxy(2,U_SKELETON,P_BLACK,100,60)
+unit_createnxy(1,U_SKELETON,P_GREEN,44,59)
+unit_createnxy(3,U_DEMON,P_YELLOW,34,44)
+unit_createnxy(1,U_CRITTER,P_RED,13, 68)
+unit_createnxy(1,U_CRITTER,P_BLUE,68,76)
+unit_createnxy(1,U_CRITTER,P_WHITE,90,76)
+find_all_alive_units(U_GULDAN)
+set_stat(S_MANA, 250)
+find_all_alive_units(U_TYRALYON)
+set_stat(S_MANA, 250)
+find_all_alive_units(U_SKELETON)
+sort_stat(S_HP,50,CMP_SMALLER)
+order_all(ORDER_MOVE,56,39)
+find_all_alive_units(U_GROM)
+damage_all(100)
+done
+
+if 1 timer 16
+message(Skeleton >> Angry Sceleton,2)
+unit_transform(P_GREEN,U_GROM,U_CRITTER)
+unit_transform(P_GREEN,U_SKELETON,U_GROM)
+done
+
+if 2 timer 23
+message(Roofles are coming for you, 2)
+unit_createnxy(2,U_ZULJIN,P_GREEN,35,12)
+unit_createnxy(2,U_ZULJIN,P_GREEN,89,6)
+unit_createnxy(3,U_ZULJIN,P_BLACK,59,27)
+unit_createnxy(1,U_DENTARG,P_BLACK,89,6)
+unit_createnxy(1,U_GULDAN,P_GREEN,89,6)
+unit_createnxy(1,U_KARGATH,P_BLACK,35,12)
+unit_createnxy(5,U_SKELETON,P_BLACK,59,27)
+done
+#endif
+fun church int pl
+find_all_alive_units(U_CHURCH)
+sort_stat(S_OWNER,pl,CMP_EQ)
+set_region2(4)
+find_all_alive_units(U_PALADIN)
+sort_in_region()
+set_stat(S_MANA,100)
+set_stat(S_SHIELD,150)
+end
+
+church(P_RED)
+church(P_BLUE)
+church(P_WHITE)
+
+
+
+build_heroes(0,U_CRITTER)
+build_heroes(1,U_DANATH)
+build_heroes(3,U_LOTHAR)
+build_heroes(4,U_UTER)
+build_heroes(6,U_HADGAR)
+build_heroes(7,U_KURDRAN)
+
+change_spell(HEAL,2)
+change_spell(EXORCISM,3)
+change_spell(FIREBALL,20)
+fireball(200)
+
+find_all_alive_units(U_HADGAR)
+set_stat(S_INVIZ,200)
+
+find_all_alive_units(U_KURDRAN)
+heal_all(25)
+
+table(P_BLACK,3,HEAL,1)
+table(P_BLACK,3,VISION,1)
+table(P_BLACK,3,GREATER_HEAL,1)
+table(P_BLACK,3,EXORCISM,1)
+
+upgrade_power(ARROWS,3)
+upgrade_power(SWORDS,4)
+
+slow_aura(0,U_ZULJIN)
+slow_aura(1,U_UTER)
+slow_aura(2,U_HADGAR)
+prevent_aura(0,U_GULDAN)
+prevent_aura(1,U_LOTHAR)
+prevent_aura(2,U_DENTARG)
+death_aura(0,U_GULDAN)
+death_aura(1,U_DK)
+death_aura(2,U_DENTARG)
+defence_aura(0,U_UTER)
+defence_aura(1,U_DANATH)
+vampire_aura(0,U_LOTHAR)
+vampire_aura(1,U_KARGATH)
+vampire_aura(2,U_KURDRAN)
+demon_manaburn(1)
+
+portal()
+
+//autocast()
+
+
+ 
+

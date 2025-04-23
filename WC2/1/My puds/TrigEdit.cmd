@@ -1,0 +1,1 @@
+start C:\Users\User\AppData\Local\Programs\War2Combat\War2Trigger\"war2 trigger edit.exe"

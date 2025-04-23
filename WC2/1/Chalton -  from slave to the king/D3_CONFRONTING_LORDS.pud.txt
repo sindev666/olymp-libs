@@ -1,0 +1,48 @@
+#import extlib
+// Вы дошли до первых людских поселений, подданых королю Альгоры
+// К сожалению от бывших величественными родов осталось лишь
+// одно название и они превратились в разбойников.
+// На территории этих земель идет перманентная война между людьми, котороя
+// в купе с орками все больше истощает этот край.
+// Ваша задача укрепиться на новых землях и развивать экономику
+// не смотря на агрессивных соседей и завоевать их земли, дабы
+// воцарился порядок на этих землях
+// Слава и процветание королю Альгоры!
+// -----------------------------------------------------------------------
+// 1. Убить красных и синих
+// 2. Чалтон как всегда должен выжить
+// 3. Скопить 20к золота или убить черных и желтых
+// -----------------------------------------------------------------------
+#pragma description
+campaign()
+set_race(P_WHITE,0)
+a = get_unit_count(U_TYRALYON)
+if a = 0
+defeat()
+done
+vis(P_BLUE, P_WHITE, 1)
+vis(P_RED, P_WHITE, 1)
+al_both(P_RED, P_BLUE, 0)
+al_both(P_RED, P_WHITE, 0)
+al_both(P_BLUE,P_WHITE, 0)
+al_both(P_BLACK,P_RED,0)
+al_both(P_BLACK,P_BLUE,0)
+al_both(P_YELLOW,P_RED,0)
+al_both(P_YELLOW,P_BLUE,0)
+al_both(P_YELLOW,P_BLACK,1)
+rally()
+//vis(P_BLACK, P_WHITE, 1)
+wc2fix()
+change_unit_name(U_TYRALYON, Lord Chalton)
+briefing(0)
+change_mission_text(~ Chalton must survive`~ Red must be killed`~ Blue must be killed`~ Gather 20k gold)
+compare_res(P_WHITE,0,20000,0,CMP_BIGGER_EQ)
+if
+red = get_unit_count(P_RED, ANY_MEN)
+blue = get_unit_count(P_BLUE, ANY_MEN)
+if red = 0 and blue = 0
+victory()
+done
+done
+// default win trigger
+mission_default()

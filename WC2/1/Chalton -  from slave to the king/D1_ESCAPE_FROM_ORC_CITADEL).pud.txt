@@ -1,0 +1,13 @@
+#import extlib
+campaign()
+set_race(P_BLUE,0)
+a = get_unit_count(U_TYRALYON)
+if a = 0
+defeat()
+done
+wc2fix()
+change_unit_name(U_TYRALYON, Lord Chalton)
+briefing(0)
+change_mission_text(~ Chalton must survive)
+// default win trigger
+mission_default()

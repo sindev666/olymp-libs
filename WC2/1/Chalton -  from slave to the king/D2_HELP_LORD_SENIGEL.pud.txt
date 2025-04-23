@@ -1,0 +1,23 @@
+#import extlib
+campaign()
+set_race(P_WHITE,0)
+set_resource(P_BLACK, 2, 400)
+a = get_unit_count(U_TYRALYON)
+if a = 0
+defeat()
+done
+vis(P_BLUE, P_WHITE, 1)
+//vis(P_BLACK, P_WHITE, 1)
+wc2fix()
+change_unit_name(U_TYRALYON, Lord Chalton)
+change_unit_name(U_GROM, Lord Senigel)
+b = get_unit_count(P_WHITE, U_GROM)
+portal()
+if b = 1
+set_stat(S_BLOOD, 250)
+give_all(P_BLACK)
+done
+briefing(0)
+change_mission_text(~ Chalton must survive`Senigel is werewolf` his mind is occupied by death` so he need to be killed)
+// default win trigger
+mission_default()

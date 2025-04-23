@@ -1,0 +1,80 @@
+#import extlib
+// Вы дошли до первых людских поселений, подданых королю Альгоры
+// К сожалению от бывших величественными родов осталось лишь
+// одно название и они превратились в разбойников.
+// На территории этих земель идет перманентная война между людьми, которая
+// в купе с орками все больше истощает этот край.
+// Ваша задача укрепиться на новых землях и развивать экономику
+// не смотря на агрессивных соседей и завоевать их земли, дабы
+// воцарился порядок на этих землях
+// Слава и процветание королю Альгоры!
+// -----------------------------------------------------------------------
+// 1. Убить красных и синих
+// 2. Чалтон как всегда должен выжить
+// 3. Скопить 20к золота или убить черных и желтых
+// -----------------------------------------------------------------------
+#pragma description
+campaign()
+set_race(P_WHITE,1)
+a = get_unit_count(U_TYRALYON)
+if a = 0
+defeat()
+done
+// check if order is "Stand Ground"
+order = get_stat(S_ORDER)
+if order = ORDER_STAND
+// heal all unit near chalton
+mana = get_stat(S_MANA)
+if mana > 4
+set_stat(S_MANA, 0)
+set_region2(1)
+find_all_alive_units(ANY_MEN)
+sort_in_region()
+sort_stat(S_OWNER, P_WHITE, CMP_EQ)
+heal_all(2)
+#asm 6 20 B_HEAL // ??? not in triggers.txt UPD: added to extlib
+//effect(B_HEAL,3)
+done
+done
+vis(P_BLUE, P_WHITE, 1)
+vis(P_RED, P_WHITE, 1)
+fun enemy int P
+al_both(P_RED, P, 0)
+al_both(P_BLUE, P, 0)
+al_both(P_GREEN, P, 0)
+end
+al_both(P_RED, P_BLUE, 1)
+al_both(P_RED, P_WHITE, 0)
+al_both(P_BLUE,P_WHITE, 1)
+al_both(P_GREEN,P_WHITE, 1)
+al_both(P_GREEN,P_BLUE,1)
+al_both(P_BLACK,P_BLUE,0)
+al_both(P_BLACK,P_RED,1)
+vis(P_GREEN,P_WHITE, 1)
+enemy(P_BLACK)
+enemy(P_YELLOW)
+enemy(P_VIOLET)
+enemy(P_ORANGE)
+rally()
+find_all_alive_units(ANY_BUILDING)
+sort_stat(S_OWNER, P_BLUE,CMP_EQ)
+sort_stat(S_SPRITE,U_HARROWTOWER,CMP_NEQ)
+sort_stat(S_SPRITE,U_HCANONTOWER,CMP_NEQ)
+sort_stat(S_HP,310,CMP_BIGGER)
+damage_all(100)
+find_all_alive_units(U_FARM)
+sort_stat(S_COLOR,P_BLUE,CMP_EQ)
+t = ul_count()
+change_resource(P_BLUE,0,t,10)
+change_resource(P_WHITE,0,t,5)
+change_resource(P_BLUE,1,t,5)
+
+//vis(P_BLACK, P_WHITE, 1)
+wc2fix()
+change_unit_name(U_TYRALYON, Lord Chalton)
+briefing(0)
+change_mission_text(~ Chalton must survive`~ Kill all enemies`~ Allies are Blue & Green)
+
+// default win trigger
+mission_default()
+

@@ -1,0 +1,1 @@
+copy "GGR_Izotop_Kriptona_Mission_2+2+3+1_Triggers_Tournament.PUD" "GGR_Izotop_2+2+3+1_Short.pud" 
