@@ -1,0 +1,59 @@
+#import extlib
+
+wc2fix()
+#foreach P 0..7
+find_all_alive_units(U_FARM)
+sort_stat(S_OWNER, P, CMP_EQ)
+s = ul_count()
+find_all_alive_units(U_PIGFARM)
+sort_stat(S_OWNER, P, CMP_EQ)
+a = ul_count()
+s = s + a
+change_resource(P,0,s,10)
+change_resource(P,1,s,5)
+#endeach
+multicast()
+
+load(d)
+if d = 1
+d=0
+message(WOOD SEASON,10)
+find_all_alive_units(U_PEASANT)
+//load_unsort(2)
+//load_peon(1)
+find_all_alive_units(U_PEON)
+//load_unsort(2)
+//load_peon(1)
+else
+message(GOLD SEASON,10)
+d=1
+find_all_alive_units(U_PEASANT)
+//load_unsort(2)
+//load_peon(0)
+find_all_alive_units(U_PEON)
+//load_unsort(2)
+//load_peon(0)
+done
+save(d)
+if 0 timer 5
+message(CYCLE,5)
+#foreach P
+// human
+unit_transform(P,U_MAGE,U_FOOTMAN)
+unit_transform(P,U_KNIGHT,U_MAGE)
+unit_transform(P,U_ARCHER,U_KNIGHT)
+unit_transform(P,U_FOOTMAN,U_ARCHER)
+// orc
+
+unit_transform(P,U_DK,U_GRUNT)
+unit_transform(P,U_OGRE,U_DK)
+unit_transform(P,U_TROLL,U_OGRE)
+unit_transform(P,U_GRUNT,U_TROLL)
+#endeach
+done
+find_all_alive_units(U_MAGE)
+set_stat(S_MANA,250)
+find_all_alive_units(U_DK)
+set_stat(S_MANA,250)
+fireball(200)
+rally()

@@ -1,0 +1,50 @@
+#import extlib
+wc2fix()
+change_unit_name(U_TYRALYON, Lord Chalton)
+// default win trigger
+mission_default()
+
+fun unit_pair int unit_pair_a int unit_pair_b int unit_pair_c
+x = get_unit_count(PLAYER_ID, unit_pair_a) + get_unit_count(PLAYER_ID, unit_pair_b)
+unit_createxy(x,unit_pair_c,PLAYER_ID,PLAYER_X,PLAYER_Y)
+end
+
+fun player int PLAYER_ID int PLAYER_X int PLAYER_Y
+a = get_unit_count(PLAYER_ID, U_FARM) + get_unit_count(PLAYER_ID, U_PIGFARM)
+s = 0 + a + a + a + a
+y = get_unit_count(PLAYER_ID, ANY_MEN) + 10
+a = a + get_unit_count(PLAYER_ID, U_CRITTER)
+change_resource(PLAYER_ID, 0, a, 10)
+change_resource(PLAYER_ID, 1, a, 5)
+change_resource(PLAYER_ID, 2, a, 1)
+if s > y
+b = get_unit_count(PLAYER_ID, U_HLUMBER) + get_unit_count(PLAYER_ID, U_OLUMBER)
+unit_createxy(b, U_ARCHER, PLAYER_ID, PLAYER_X, PLAYER_Y)
+c = get_unit_count(PLAYER_ID, U_HBARRACK) + get_unit_count(PLAYER_ID, U_OBARRACK)
+unit_createxy(c, U_FOOTMAN, PLAYER_ID,PLAYER_X,PLAYER_Y)
+b = get_unit_count(PLAYER_ID, U_HSMITH) + get_unit_count(PLAYER_ID, U_OSMITH)
+unit_createxy(b,U_BALLISTA,PLAYER_ID,PLAYER_X,PLAYER_Y)
+unit_pair(U_MAGE_TOWER,U_TEMPLE,U_MAGE)
+unit_pair(U_CHURCH,U_ALTAR,U_DWARWES)
+unit_pair(U_ALCHEMIST,U_INVENTOR,U_FLYER)
+unit_pair(U_DRAGONROOST,U_AVIARY,U_GRIFON)
+unit_pair(U_STABLES,U_OGREMOUND,U_KNIGHT)
+unit_pair(U_PEASANT,U_PEON,U_CRITTER)
+done
+end
+
+#define NEAR 1
+
+#ifdef NEAR
+player(P_BLUE, 70,54)
+player(P_RED, 100,50)
+player(P_GREEN, 35,70)
+player(P_VIOLET, 28,96)
+#endif
+
+#ifndef NEAR
+player(P_BLUE, 65, 18)
+player(P_RED, 120, 88)
+player(P_GREEN, 101, 14)
+player(P_VIOLET, 65, 122)
+#endif

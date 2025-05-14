@@ -1,0 +1,72 @@
+#import extlib
+
+wc2fix()
+rally()
+team(P_RED,P_BLUE)
+team(P_BLUE,P_GREEN)
+team(P_RED,P_GREEN)
+mission_default()
+#foreach P 0..6
+team(P,P_VIOLET)
+#endeach
+team(P_VIOLET,P_YELLOW,0)
+team(P_ORANGE,P_BLACK)
+team(P_ORANGE,P_WHITE)
+team(P_BLACK,P_WHITE)
+
+find_all_alive_units(U_PEASANT)
+set_region(3,4,28,18)
+sort_in_region()
+heal_all(255)
+a = ul_count()
+if a = 0
+unit_createnxy(1,U_PEASANT,P_YELLOW,16,12)
+done
+one = 1
+#foreach P 0..7
+change_resource(P,2,one,2)
+change_resource(P,1,one,50)
+#endeach
+fun fence int PLAYER int* fence_res
+fence_res=get_kills(P_VIOLET,PLAYER,U_FOOTMAN)+get_kills(P_VIOLET,PLAYER,U_ARCHER)+get_kills(P_VIOLET,PLAYER,U_KNIGHT)+get_kills(P_VIOLET,PLAYER,U_BALLISTA)
+end
+x=fence(P_ORANGE)+fence(P_WHITE)+fence(P_BLACK)+1
+y=fence(P_RED)+fence(P_BLUE)+fence(P_GREEN)+1
+change_resource(P_RED,0,x,100)
+change_resource(P_BLUE,0,x,100)
+change_resource(P_GREEN,0,x,100)
+change_resource(P_ORANGE,0,y,100)
+change_resource(P_WHITE,0,y,100)
+change_resource(P_BLACK,0,y,100)
+find_all_alive_units(U_PEASANT)
+set_region(6,10,9,14)
+sort_in_region()
+ans = ul_count()
+teleport_all(21,29)
+find_all_alive_units(U_PEASANT)
+set_region(22,10,25,14)
+sort_in_region()
+teleport_all(10,29)
+ans = ans + ul_count()
+if ans > 0
+message(цннннк!, 5)
+done
+attack_rules(U_HCANONTOWER,U_FOOTMAN,0)
+attack_rules(U_HCANONTOWER,U_ARCHER,2)
+attack_rules(U_HCANONTOWER,U_BALLISTA,4)
+attack_rules(U_HCANONTOWER,U_KNIGHT,6)
+attack_rules(U_HCANONTOWER,U_HCANONTOWER,8)
+attack_rules(U_HCANONTOWER,U_HBARRACK,10)
+attack_rules(U_HCANONTOWER,U_HSMITH,12)
+attack_rules(U_HCANONTOWER,U_HLUMBER,14)
+attack_rules(U_HCANONTOWER,U_FARM,16)
+find_all_alive_units(U_PEASANT)
+set_region(8,27,23,31)
+sort_in_region()
+res=ul_count()
+if res = 5
+victory()
+done
+#foreach P 0..6
+team(P,P_YELLOW,0)
+#endeach
